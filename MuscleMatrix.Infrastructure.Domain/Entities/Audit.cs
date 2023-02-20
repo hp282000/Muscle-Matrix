@@ -10,8 +10,9 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
     {
         public DateTime  CreatedOn { get; set; }
 
+        public DateTime CreatedBy { get; set; } 
         public DateTime UpdatedOn { get; set;}
-
+        public DateTime UpdatedBy { get; set; }
         public bool IsActive { get; set; }  
     }
 }

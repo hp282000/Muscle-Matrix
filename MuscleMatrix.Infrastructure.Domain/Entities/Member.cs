@@ -19,5 +19,11 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
         public GymLocation Location { get; set; }
         public User User { get; set; }
         public int UserId { get; set; }
+
+        public int TrainerId { get; set; }
+        public Trainer Trainer { get; set; }
+
+
+          
     }
 }
