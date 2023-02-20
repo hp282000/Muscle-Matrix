@@ -1,0 +1,87 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Muscle Matrix", "Muscle Matrix\Muscle Matrix.csproj", "{4898D70E-F840-4FFF-9D1E-9AF615BEC59E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{6FD72950-B9AE-427C-81F7-E974AEE33038}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{D114B538-8F5F-4A27-A4A6-83B5366BCFCA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{A7E7930C-3555-4B4C-B7EF-1A1EA2B90B2D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{1CAE4095-750F-47D3-88B9-F200885903AA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{5BF5E819-FCE6-4187-86C2-86E3EA8B3A71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuscleMatrix.Infrastructure.Contract", "MuscleMatrix.Infrastructure.Contract\MuscleMatrix.Infrastructure.Contract.csproj", "{2A875EA2-F72A-4FDE-86EC-DCA57D49115E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuscleMatrix.Infrastructure.Domain", "MuscleMatrix.Infrastructure.Domain\MuscleMatrix.Infrastructure.Domain.csproj", "{59070744-6A5A-4BBB-AA53-8793179D5638}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuscleMatrix.Infrastructure.Repository", "MuscleMatrix.Infrastructure.Repository\MuscleMatrix.Infrastructure.Repository.csproj", "{6CC2D999-20C3-45BC-A219-C25C95D9D075}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuscleMatrix.Core.Contract", "MuscleMatrix.Core.Contract\MuscleMatrix.Core.Contract.csproj", "{E135C1F8-9038-4CFB-B47A-4E354411F676}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuscleMatrix.Core.Domain", "MuscleMatrix.Core.Domain\MuscleMatrix.Core.Domain.csproj", "{1F26BAEA-8EF6-4294-B7E1-F1A6A89F9A1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuscleMatrix.Core.Service", "MuscleMatrix.Core.Service\MuscleMatrix.Core.Service.csproj", "{CB8AC786-CCA1-4762-B80C-291AB08DC7AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuscleMatrix.Core.Builder", "MuscleMatrix.Core.Builder\MuscleMatrix.Core.Builder.csproj", "{4011C461-55EA-4A17-908F-5635992288B2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4898D70E-F840-4FFF-9D1E-9AF615BEC59E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4898D70E-F840-4FFF-9D1E-9AF615BEC59E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4898D70E-F840-4FFF-9D1E-9AF615BEC59E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4898D70E-F840-4FFF-9D1E-9AF615BEC59E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A875EA2-F72A-4FDE-86EC-DCA57D49115E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A875EA2-F72A-4FDE-86EC-DCA57D49115E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A875EA2-F72A-4FDE-86EC-DCA57D49115E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A875EA2-F72A-4FDE-86EC-DCA57D49115E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59070744-6A5A-4BBB-AA53-8793179D5638}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59070744-6A5A-4BBB-AA53-8793179D5638}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59070744-6A5A-4BBB-AA53-8793179D5638}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59070744-6A5A-4BBB-AA53-8793179D5638}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CC2D999-20C3-45BC-A219-C25C95D9D075}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CC2D999-20C3-45BC-A219-C25C95D9D075}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CC2D999-20C3-45BC-A219-C25C95D9D075}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CC2D999-20C3-45BC-A219-C25C95D9D075}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E135C1F8-9038-4CFB-B47A-4E354411F676}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E135C1F8-9038-4CFB-B47A-4E354411F676}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E135C1F8-9038-4CFB-B47A-4E354411F676}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E135C1F8-9038-4CFB-B47A-4E354411F676}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F26BAEA-8EF6-4294-B7E1-F1A6A89F9A1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F26BAEA-8EF6-4294-B7E1-F1A6A89F9A1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F26BAEA-8EF6-4294-B7E1-F1A6A89F9A1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F26BAEA-8EF6-4294-B7E1-F1A6A89F9A1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB8AC786-CCA1-4762-B80C-291AB08DC7AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB8AC786-CCA1-4762-B80C-291AB08DC7AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB8AC786-CCA1-4762-B80C-291AB08DC7AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB8AC786-CCA1-4762-B80C-291AB08DC7AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4011C461-55EA-4A17-908F-5635992288B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4011C461-55EA-4A17-908F-5635992288B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4011C461-55EA-4A17-908F-5635992288B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4011C461-55EA-4A17-908F-5635992288B2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4898D70E-F840-4FFF-9D1E-9AF615BEC59E} = {6FD72950-B9AE-427C-81F7-E974AEE33038}
+		{2A875EA2-F72A-4FDE-86EC-DCA57D49115E} = {D114B538-8F5F-4A27-A4A6-83B5366BCFCA}
+		{59070744-6A5A-4BBB-AA53-8793179D5638} = {D114B538-8F5F-4A27-A4A6-83B5366BCFCA}
+		{6CC2D999-20C3-45BC-A219-C25C95D9D075} = {D114B538-8F5F-4A27-A4A6-83B5366BCFCA}
+		{E135C1F8-9038-4CFB-B47A-4E354411F676} = {A7E7930C-3555-4B4C-B7EF-1A1EA2B90B2D}
+		{1F26BAEA-8EF6-4294-B7E1-F1A6A89F9A1F} = {A7E7930C-3555-4B4C-B7EF-1A1EA2B90B2D}
+		{CB8AC786-CCA1-4762-B80C-291AB08DC7AD} = {A7E7930C-3555-4B4C-B7EF-1A1EA2B90B2D}
+		{4011C461-55EA-4A17-908F-5635992288B2} = {A7E7930C-3555-4B4C-B7EF-1A1EA2B90B2D}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {34FC6982-07C8-420C-A0DF-734B23D5CB7D}
+	EndGlobalSection
+EndGlobal
