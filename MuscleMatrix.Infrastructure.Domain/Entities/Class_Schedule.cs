@@ -18,7 +18,7 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
 
         public TimeOnly StartTime { get; set; }
 
-        public DateTime EndTime { get; set; }
+        public TimeOnly EndTime { get; set; }
 
         public int LocationId { get; set; }
 
