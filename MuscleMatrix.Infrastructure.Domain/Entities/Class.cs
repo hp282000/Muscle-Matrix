@@ -6,12 +6,16 @@ using System.Threading.Tasks;
 
 namespace MuscleMatrix.Infrastructure.Domain.Entities
 {
-    public class ProgressReport:Audit
+    public class Class
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public Member Member { get; set; }  
-        public int MemberId { get; set; }   
 
+        public string Name { get; set; }
+
+        public string Description { get; set; }
+
+        public int TrainerId { get; set; }
+
+        public Trainer Trainer { get; set;}
     }
 }

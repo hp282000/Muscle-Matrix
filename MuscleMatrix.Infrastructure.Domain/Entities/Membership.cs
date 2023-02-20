@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace MuscleMatrix.Infrastructure.Domain.Entities
 {
-    public class Equipment
+    public class Membership
     {
         public int Id { get; set; }
 
-        public string Name { get; set; }
-
         public string Type { get; set; }
 
-        public DateTime PurchaseDate { get; set; }
+        public long Cost { get; set; }  
 
+        public int DurationDay { get; set; }
 
     }
+}
 }

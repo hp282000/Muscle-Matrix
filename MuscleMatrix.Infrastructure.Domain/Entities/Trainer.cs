@@ -11,26 +11,32 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
         public Trainer()
         {
         }
-
         public int Id { get; set; } 
-        public int Experience { get; set; }    
+        public int YearofExperience { get; set; }    
         public string Speciality { get; set; }
-        public string ExperienceLetter { get; set; }
+        public string ExperienceDiscription { get; set; }
         public  string ProfilePhoto { get; set; }
-        public User User { get; set; }  
+        public int WeightId { get; set; }
+        public Weight Weight { get; set; }
+        public int HeightId { get; set; }
+        public Height Height { get; set; }
         public int UserId { get; set; }
+        public User User { get; set; }  
+
+        public int LocationId { get; set; }
+
+        public GymLocation Location { get; set; }
 
 
         public Trainer(int experience, string speciality, string experienceLetter, string profilePhoto, User user, int userId)
         {
-            Experience = experience;
+            YearofExperience = experience;
             Speciality = speciality;
-            ExperienceLetter = experienceLetter;
+            ExperienceDiscription = experienceLetter;
             ProfilePhoto = profilePhoto;
             User = user;
             UserId = userId;
-            CreatedOn= DateTime.Now;
-            IsDeleted= false;
+
         }
     }
 }

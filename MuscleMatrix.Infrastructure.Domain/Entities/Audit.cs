@@ -12,6 +12,6 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
 
         public DateTime UpdatedOn { get; set;}
 
-        public bool IsDeleted { get; set; }  
+        public bool IsActive { get; set; }  
     }
 }
