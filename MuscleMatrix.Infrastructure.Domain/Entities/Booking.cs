@@ -17,11 +17,10 @@
         public Booking( int classId, string bookingName)
         {
         
-      
             ClassId = classId;
-        
             BookingName = bookingName;
             CreatedOn = DateTime.Now;
+            CreatedBy = bookingName;
             IsActive = false;
         }
 

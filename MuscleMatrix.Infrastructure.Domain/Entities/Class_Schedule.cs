@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace MuscleMatrix.Infrastructure.Domain.Entities
 {
-    public class Class_Schedule
+    public class Class_Schedule:Audit
     {
 
         public int Id { get; set; }
@@ -28,8 +29,11 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
             Day = day;
             StartTime = startTime;
             EndTime = endTime;
-      //      LocationId = locationId;
-       
+            CreatedOn = DateTime.Now;
+           // CreatedBy
+            IsActive = true;
+            //      LocationId = locationId;
+
         }
 
     }

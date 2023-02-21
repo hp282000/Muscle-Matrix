@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MuscleMatrix.Infrastructure.Domain.Entities
 {
-    public class Trainer:Audit
+    public class Trainer
     {
         public Trainer()
         {
@@ -36,8 +36,10 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
             ProfilePhoto = profilePhoto;
             
             UserId = userId;
-            CreatedOn = DateTime.Now;
-            IsActive = false;
+            User.CreatedOn = DateTime.Now;
+            User.CreatedBy = User.Name;
+            User.IsActive = true;
+
 
         }
     }
