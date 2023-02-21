@@ -16,6 +16,14 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
 
         public int DurationDay { get; set; }
 
+        public Membership(string type, long cost, int durationDay)
+        {
+            Type = type;
+            Cost = cost;
+            DurationDay = durationDay;
+        }
+
+
     }
 }
-}
+

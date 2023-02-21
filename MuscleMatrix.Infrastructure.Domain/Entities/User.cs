@@ -16,7 +16,6 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
         public string Gender { get; set; }
         public DateTime DateOfBirth { get; set; }
        
-
         public User() { }
 
         public User(string name, string email, string contactNo, string password)
@@ -26,6 +25,7 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
             ContactNo = contactNo;
             Password = password;
             CreatedOn= DateTime.Now;
+            CreatedBy = name;
             IsActive = false;
         }
     }

@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace MuscleMatrix.Infrastructure.Domain.Entities
 {
-    public class Member:Audit
+    public class Member
     {
+
         public int Id { get; set; }
         public string Photo { get; set; }
         public int WeightId { get; set; }
@@ -17,12 +18,21 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
         public Height Height { get; set; }
         public int LocationId { get; set; }
         public GymLocation Location { get; set; }
-        public User User { get; set; }
         public int UserId { get; set; }
+        public User User { get; set; }
 
-        public int TrainerId { get; set; }
-        public Trainer Trainer { get; set; }
 
+        public Member(string photo, int weightId, int heightId, int locationId, int userId)
+        {
+            Photo = photo;
+            WeightId = weightId;
+            HeightId = heightId;
+            LocationId = locationId;
+            UserId = userId;
+            User.CreatedOn = DateTime.Now;
+            User.CreatedBy = User.Name;
+            User.IsActive = false;
+        }
 
           
     }

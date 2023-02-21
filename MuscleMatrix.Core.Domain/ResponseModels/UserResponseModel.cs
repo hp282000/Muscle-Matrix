@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MuscleMatrix.Infrastructure.Domain
+namespace MuscleMatrix.Core.Domain.ResponseModels
 {
-    internal class MuscleMatrixContext
+    public class UserResponseModel
     {
     }
 }
