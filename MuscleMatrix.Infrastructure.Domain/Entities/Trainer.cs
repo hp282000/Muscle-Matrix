@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MuscleMatrix.Infrastructure.Domain.Entities
 {
-    public class Trainer:Audit
+    public class Trainer
     {
         public Trainer()
         {
@@ -28,14 +28,18 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
         public GymLocation Location { get; set; }
 
 
-        public Trainer(int experience, string speciality, string experienceLetter, string profilePhoto, User user, int userId)
+        public Trainer(int experience, string speciality, string experienceLetter, string profilePhoto,  int userId)
         {
             YearofExperience = experience;
             Speciality = speciality;
             ExperienceDiscription = experienceLetter;
             ProfilePhoto = profilePhoto;
-            User = user;
+            
             UserId = userId;
+            User.CreatedOn = DateTime.Now;
+            User.CreatedBy = User.Name;
+            User.IsActive = true;
+
 
         }
     }

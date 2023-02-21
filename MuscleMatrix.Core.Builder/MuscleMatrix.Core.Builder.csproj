@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MuscleMatrix.Infrastructure.Domain\MuscleMatrix.Infrastructure.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

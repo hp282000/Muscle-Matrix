@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MuscleMatrix.Infrastructure.Domain.Entities
 {
-    public class Membership
+    public class Membership :Audit
     {
         public int Id { get; set; }
 
@@ -16,6 +16,16 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
 
         public int DurationDay { get; set; }
 
+        public Membership(string type, long cost, int durationDay)
+        {
+            Type = type;
+            Cost = cost;
+            DurationDay = durationDay;
+            CreatedOn = DateTime.Now;
+            IsActive= true;
+        }
+
+
     }
 }
-}
+

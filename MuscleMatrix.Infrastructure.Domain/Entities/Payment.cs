@@ -8,6 +8,7 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
 {
     public class Payment
     {
+
         public int Id { get; set; }
 
         public long TransactionId { get; set; }
@@ -18,9 +19,18 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
 
         public string Status { get; set; }
 
-        public int BookingId { get; set; }
+        //public int BookingId { get; set; }
 
-        public Booking Booking { get; set; }
+        //public Booking Booking { get; set; }
+        public Payment(long transactionId, long transactionAmount, DateTime transactionDate, string status)
+        {
+            TransactionId = transactionId;
+            TransactionAmount = transactionAmount;
+            TransactionDate = transactionDate;
+            Status = status;
+          //  BookingId = bookingId;
+      
+        }
 
     }
 }
