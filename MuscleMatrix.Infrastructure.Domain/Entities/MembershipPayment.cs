@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,6 +25,7 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
         public int MembershipId { get; set; }
 
         public Membership Membership { get; set; }
+
         public MembershipPayment()
         {
         }

@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.14">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -20,7 +21,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MuscleMatrix.Core.Contract\MuscleMatrix.Core.Contract.csproj" />
+    <ProjectReference Include="..\MuscleMatrix.Core.Service\MuscleMatrix.Core.Service.csproj" />
     <ProjectReference Include="..\MuscleMatrix.Infrastructure.Domain\MuscleMatrix.Infrastructure.Domain.csproj" />
+    <ProjectReference Include="..\MuscleMatrix.Infrastructure.Repository\MuscleMatrix.Infrastructure.Repository.csproj" />
   </ItemGroup>
 
 </Project>
