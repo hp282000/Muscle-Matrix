@@ -10,13 +10,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddSqlServer(builder.Configuration);
-var app = builder.Build();
 
 //Manual Configuration
+builder.Services.AddSqlServer(builder.Configuration);
+builder.Services.AddDependencies(builder.Configuration);
 
 
-
+var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

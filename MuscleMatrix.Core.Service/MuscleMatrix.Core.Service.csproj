@@ -6,4 +6,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MuscleMatrix.Core.Builder\MuscleMatrix.Core.Builder.csproj" />
+    <ProjectReference Include="..\MuscleMatrix.Core.Contract\MuscleMatrix.Core.Contract.csproj" />
+    <ProjectReference Include="..\MuscleMatrix.Infrastructure.Contract\MuscleMatrix.Infrastructure.Contract.csproj" />
+  </ItemGroup>
+
 </Project>
