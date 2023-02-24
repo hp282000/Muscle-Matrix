@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace MuscleMatrix.Infrastructure.Domain.Entities
 {
@@ -20,7 +21,10 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
         {
             LocationName = locationName;
             CreatedOn = DateTime.Now;
-            IsActive = false;
+            CreatedBy = locationName;
+            IsActive = true;
+            UpdatedBy = "Not Updated";
+            UpdatedOn = DateTime.Now;
 
         }
 

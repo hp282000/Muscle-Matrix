@@ -5,7 +5,7 @@ using MuscleMatrix.Core.Domain.RequestModels;
 
 namespace Muscle_Matrix.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/")] 
     [ApiController]
     public class MuscleMatrixUserController : ControllerBase
     {
@@ -15,7 +15,21 @@ namespace Muscle_Matrix.Controllers
             _userService = muscleMatrixUserService;
         }
 
-        [HttpPost("Add-User")]
+        [HttpPost("user-login")]
+         public async Task<IActionResult> UserCheckLogin(UserLogin userLogin)
+        {
+            var checkLogin = await _userService.UserLoginAsync(userLogin);
+
+            if (checkLogin == null)
+            {
+                return BadRequest("User Not Found");
+            }
+            else
+                return Ok(checkLogin);
+        }
+
+
+        [HttpPost("user")]
         public async Task<IActionResult> AddUser(UserRequestModel userRequestModel)
         {
             var addUser = await _userService.AddUserAsync(userRequestModel);
@@ -24,14 +38,14 @@ namespace Muscle_Matrix.Controllers
 
         }
 
-        [HttpGet("Get-Users")]
+        [HttpGet("users")]
         public async Task<IActionResult> GetUser()
         {
             var getUser = await _userService.GetUserAsync();
             return Ok(getUser);
         }
 
-        [HttpDelete("Delete-User")]
+        [HttpDelete("user")]
         public async Task<IActionResult> DeleteUser(int id)
         {
             var deleteUser = await _userService.DeleteUserAsync(id);
@@ -39,7 +53,7 @@ namespace Muscle_Matrix.Controllers
             return Ok(deleteUser);
         }
 
-        [HttpPut("Update-User")]
+        [HttpPut("user")]
         public async Task<IActionResult> UpdateUser(UserRequestModel userRequestModel)
         {
             var updateUser =await _userService.UpdateUserAsync(userRequestModel);

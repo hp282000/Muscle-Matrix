@@ -9,7 +9,8 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
     public class User:Audit
     {
         public int Id { get; set; }
-        public string Name { get; set; }    
+        public string Name { get; set; }
+        [Key]
         public string Email { get; set; }
         public long ContactNo { get; set; }
         public byte[] Password { get; set; }
@@ -32,7 +33,7 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
             CreatedOn= DateTime.Now;
             CreatedBy = name;
             IsActive = true; 
-            UpdatedBy= name;
+            UpdatedBy= "Not Updated";
             UpdatedOn= DateTime.Now;
             
         }

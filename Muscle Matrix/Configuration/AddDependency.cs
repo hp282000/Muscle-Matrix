@@ -12,6 +12,10 @@ namespace Muscle_Matrix.Configuration
         {
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<ILocationService, LocationService>();
+            services.AddTransient<ILocationRepository, LocationRepository>();
+            services.AddTransient<IUserRoleService,UserRoleService>();
+            services.AddTransient<IUserRoleRepository, UserRoleRepository>();
             services.AddAutoMapper(typeof(Program));
         }
 

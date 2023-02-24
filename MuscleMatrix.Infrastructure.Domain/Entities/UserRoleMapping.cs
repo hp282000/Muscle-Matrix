@@ -16,5 +16,19 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
         public int RoleId { get; set; }
         public Role Role { get; set; }
 
+
+        public UserRoleMapping(int userId, int roleId)
+        {
+          
+            UserId = userId;
+            RoleId= roleId;
+            
+            
+
+        }
+
+        public UserRoleMapping()
+        {
+        }
     }
 }

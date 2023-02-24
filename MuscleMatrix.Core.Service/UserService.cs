@@ -23,13 +23,33 @@ namespace MuscleMatrix.Core.Service
             _mapper = mapper;
         }
 
+        public async Task<string> UserLoginAsync(UserLogin userLogin)
+        {
+            var checkUser = await _userRepository.UserLogin(userLogin);
+
+            var hsa = new HMACSHA256(checkUser.PasswordSalt);
+
+            var userPassword = Encoding.ASCII.GetBytes(userLogin.Password);
+
+            var computeuserPassword = hsa.ComputeHash(userPassword);
+
+            if (checkUser.Password.SequenceEqual(computeuserPassword))
+            {
+                return "User Found";
+            }
+
+            return "User Not Found";
+
+        }
+
         public async Task<int> AddUserAsync(UserRequestModel userRequestModel)
         {
-            User userpassword = new User();
-
-            userpassword.Password = Encoding.ASCII.GetBytes(userRequestModel.Password);
+            var userpassword = new User();
             var hsa = new HMACSHA256();
+            var password = Encoding.ASCII.GetBytes(userRequestModel.Password);
+            var computepassword = hsa.ComputeHash(password);
 
+            userpassword.Password = computepassword;
             userpassword.PasswordSalt = hsa.Key;
 
             var addUser = UserBuilder.Build(userRequestModel, userpassword);
@@ -40,9 +60,7 @@ namespace MuscleMatrix.Core.Service
             {
                 throw   new ArgumentNullException("User is not created Successfully Make sure that your repository works properly");
             }
-
                 return user;
-           
         }
 
         public async Task<List<UserResponseModel>> GetUserAsync()
@@ -66,11 +84,12 @@ namespace MuscleMatrix.Core.Service
             return id;
         }
 
-        public async Task<User> UpdateUserAsync(UserRequestModel userRequestModel)
+        public async Task<UserResponseModel> UpdateUserAsync(UserRequestModel userRequestModel)
         {
             var updateUser = await _userRepository.UpdateUser(userRequestModel);
+            var mapping = _mapper.Map<UserResponseModel>(updateUser);
 
-            return updateUser;
+            return mapping;
         }
     }
 }
