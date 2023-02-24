@@ -14,6 +14,6 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
         public Weight() { }
         public int Id { get; set; }
 
-        public string WeightValue { get; set; }//range
+        public string WeightValue { get; set; } //range
     }
 }

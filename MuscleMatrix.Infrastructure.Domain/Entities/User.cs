@@ -32,7 +32,7 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
             CreatedOn= DateTime.Now;
             CreatedBy = name;
             IsActive = true; 
-            UpdatedBy= name;
+            UpdatedBy= "Not Updated";
             UpdatedOn= DateTime.Now;
             
         }

@@ -13,6 +13,6 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
     {
         public Height() { } 
         public int Id { get; set; }
-        public string HeightValue { get; set; }
+        public float HeightValue { get; set; }
     }
 }

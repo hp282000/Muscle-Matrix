@@ -21,9 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MuscleMatrix.Core.Contract\MuscleMatrix.Core.Contract.csproj" />
     <ProjectReference Include="..\MuscleMatrix.Core.Service\MuscleMatrix.Core.Service.csproj" />
-    <ProjectReference Include="..\MuscleMatrix.Infrastructure.Domain\MuscleMatrix.Infrastructure.Domain.csproj" />
     <ProjectReference Include="..\MuscleMatrix.Infrastructure.Repository\MuscleMatrix.Infrastructure.Repository.csproj" />
   </ItemGroup>
 

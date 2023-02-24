@@ -1,5 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using MuscleMatrix.Core.Domain.RequestModels;
+using MuscleMatrix.Core.Domain.ResponseModels;
 using MuscleMatrix.Infrastructure.Contract;
 using MuscleMatrix.Infrastructure.Domain.Context;
 using MuscleMatrix.Infrastructure.Domain.Entities;
@@ -15,6 +17,13 @@ namespace MuscleMatrix.Infrastructure.Repository
         public UserRepository(ProjectContext projectContext)
         {
             _projectContext = projectContext;
+        }
+
+        public async Task<User> UserLogin(UserLogin userLogin)
+        {
+            var checkUser = _projectContext.Users.FirstOrDefault(x=> x.Email == userLogin.Email);
+
+            return checkUser;
         }
 
         public async Task<int> AddUser(User user)
@@ -43,6 +52,7 @@ namespace MuscleMatrix.Infrastructure.Repository
         {
 
             var updateUser = _projectContext.Users.FirstOrDefault(x=> x.Id == userRequestModel.Id);
+
 
             if(updateUser == null) {
 
