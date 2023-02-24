@@ -16,6 +16,7 @@ namespace Muscle_Matrix.Configuration
                 .ForMember(urrm => urrm.UserName, urm => urm.MapFrom(x => x.User.Name)).
                 ForMember(urrm => urrm.Role , urm=> urm.MapFrom(x=> x.Role.Name));
             CreateMap<UserRequestModel,UserResponseModel>();
+
             CreateMap<GymLocation,LocationResponseModel>();
         }
     }
