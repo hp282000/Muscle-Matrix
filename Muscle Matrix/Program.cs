@@ -14,7 +14,7 @@ builder.Services.AddSwaggerGen();
 //Manual Configuration
 builder.Services.AddSqlServer(builder.Configuration);
 builder.Services.AddDependencies(builder.Configuration);
-
+builder.Services.ManualAuthentication(builder.Configuration);
 
 var app = builder.Build();
 

@@ -15,3 +15,4 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
         public bool IsActive { get; set; }  
     }
 }
+    
