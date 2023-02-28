@@ -6,6 +6,7 @@ using MuscleMatrix.Core.Domain.RequestModels;
 
 namespace Muscle_Matrix.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [Route("api/")] 
     [ApiController]
     public class MuscleMatrixUserController : ControllerBase
@@ -32,7 +33,7 @@ namespace Muscle_Matrix.Controllers
         }
 
 
-        [Authorize(Roles="Admin")]
+        
         [HttpPost("user")]
         public async Task<IActionResult> AddUser(UserRequestModel userRequestModel)
         {

@@ -14,13 +14,13 @@ namespace Muscle_Matrix.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class Authentication : ControllerBase
+    public class MuscleMatrixAuthentication : ControllerBase
     {
         private readonly IConfiguration _config;
         private readonly IAuthenticateRepository _authenticateRepository;
 
 
-        public Authentication(IConfiguration config, IAuthenticateRepository authenticateRepository)
+        public MuscleMatrixAuthentication(IConfiguration config, IAuthenticateRepository authenticateRepository)
         {
             _config = config;
             _authenticateRepository = authenticateRepository;
