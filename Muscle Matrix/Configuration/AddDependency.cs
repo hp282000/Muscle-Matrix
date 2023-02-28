@@ -16,6 +16,8 @@ namespace Muscle_Matrix.Configuration
             services.AddTransient<ILocationRepository, LocationRepository>();
             services.AddTransient<IUserRoleService,UserRoleService>();
             services.AddTransient<IUserRoleRepository, UserRoleRepository>();
+            services.AddTransient<IAuthenticateRepository,AuthenticateRepository>();
+
             services.AddAutoMapper(typeof(Program));
         }
 

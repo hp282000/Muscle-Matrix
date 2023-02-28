@@ -10,7 +10,7 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        [Key]
+      
         public string Email { get; set; }
         public long ContactNo { get; set; }
         public byte[] Password { get; set; }

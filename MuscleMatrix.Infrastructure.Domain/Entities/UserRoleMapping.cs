@@ -22,8 +22,6 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
           
             UserId = userId;
             RoleId= roleId;
-            
-            
 
         }
 

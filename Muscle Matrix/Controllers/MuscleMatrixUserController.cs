@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MuscleMatrix.Core.Contract;
 using MuscleMatrix.Core.Domain.RequestModels;
@@ -16,6 +17,8 @@ namespace Muscle_Matrix.Controllers
         }
 
         [HttpPost("user-login")]
+        
+
          public async Task<IActionResult> UserCheckLogin(UserLogin userLogin)
         {
             var checkLogin = await _userService.UserLoginAsync(userLogin);
@@ -29,10 +32,11 @@ namespace Muscle_Matrix.Controllers
         }
 
 
+        [Authorize(Roles="Admin")]
         [HttpPost("user")]
         public async Task<IActionResult> AddUser(UserRequestModel userRequestModel)
         {
-            var addUser = await _userService.AddUserAsync(userRequestModel);
+             await _userService.AddUserAsync(userRequestModel);
 
             return Ok(userRequestModel);
 
