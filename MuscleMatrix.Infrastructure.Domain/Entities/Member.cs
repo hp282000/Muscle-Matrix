@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace MuscleMatrix.Infrastructure.Domain.Entities
 {
-    public class Member
+    public class Member:Audit
     {
 
         public int Id { get; set; }
@@ -29,11 +30,14 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
             HeightId = heightId;
             LocationId = locationId;
             UserId = userId;
-            User.CreatedOn = DateTime.Now;
-            User.CreatedBy = User.Name;
-            User.IsActive = false;
+            CreatedOn = DateTime.Now;
+            CreatedBy = "Admin";
+            IsActive = false;
+            UpdatedBy = "Not Updated";
+            UpdatedOn = DateTime.Now;
         }
 
-          
-    }
+        
+
+    }     
 }
