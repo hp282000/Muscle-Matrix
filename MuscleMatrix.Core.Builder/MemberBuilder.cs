@@ -12,7 +12,7 @@ namespace MuscleMatrix.Core.Builder
     {
         public static Member Build(MemberRequestModel memberRequestModel)
         {
-            return new Member(memberRequestModel.photo ,memberRequestModel.WeightId, memberRequestModel.HeightId, memberRequestModel.LocationId,memberRequestModel.UserId);
+            return new Member(memberRequestModel.Photo.FileName ,memberRequestModel.WeightId, memberRequestModel.HeightId, memberRequestModel.LocationId,memberRequestModel.UserId);
         }
     }
 }
