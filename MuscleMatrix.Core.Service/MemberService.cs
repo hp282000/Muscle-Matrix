@@ -27,12 +27,20 @@ namespace MuscleMatrix.Core.Service
         public async Task<int> AddMemberAsync(MemberRequestModel memberRequestModel)
         {
             var addMember =  MemberBuilder.Build(memberRequestModel);
-            addMember.CreatedBy = addMember.User.Name;
+         
             var useMember = await _imemberRepository.AddMember(addMember);
 
             return useMember;
          
             
+        }
+        public async Task<List<MemberResponseModel>> GetMemberAsync()
+        {
+            var getMembers = await _imemberRepository.GetMember();
+
+            var mapper = _mapper.Map<List<MemberResponseModel>>(getMembers);
+
+            return mapper;
         }
     }
 }

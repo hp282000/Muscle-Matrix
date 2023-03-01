@@ -1,4 +1,5 @@
 ﻿using MuscleMatrix.Core.Domain.RequestModels;
+using MuscleMatrix.Core.Domain.ResponseModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace MuscleMatrix.Core.Contract
     {
         Task<int> AddMemberAsync(MemberRequestModel memberRequestModel);
 
+        Task<List<MemberResponseModel>> GetMemberAsync();
 
-        
     }
 }

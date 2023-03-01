@@ -23,5 +23,12 @@ namespace Muscle_Matrix.Controllers
 
             return Ok(memberRequestModel);
         }
+        [HttpGet]
+        public async Task<IActionResult> GetMembers()
+        {
+            var getMembers = await _memberService.GetMemberAsync();
+
+            return Ok(getMembers);
+        }
     }
 }

@@ -20,9 +20,9 @@ namespace MuscleMatrix.Infrastructure.Repository
             _projectContext = projectContext;
         }
         
-        public async Task<User> Authorization(string userLogin)
+        public async Task<User> Authorization(UserLogin userLogin)
         {
-            var checkUser =  _projectContext.Users.FirstOrDefault(x => x.Email == userLogin);
+            var checkUser =  _projectContext.Users.FirstOrDefault(x => x.Email == userLogin.Email);
 
             if (checkUser == null)
             {

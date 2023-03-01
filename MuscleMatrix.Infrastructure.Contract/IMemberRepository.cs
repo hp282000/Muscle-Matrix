@@ -10,5 +10,7 @@ namespace MuscleMatrix.Infrastructure.Contract
     public interface IMemberRepository
     {
         Task<int> AddMember(Member member);
+
+        Task<List<Member>> GetMember();
     }
 }

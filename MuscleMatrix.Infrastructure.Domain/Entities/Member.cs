@@ -8,19 +8,19 @@ using System.Xml.Linq;
 
 namespace MuscleMatrix.Infrastructure.Domain.Entities
 {
-    public class Member:Audit
+    public class Member
     {
 
         public int Id { get; set; }
         public string Photo { get; set; }
         public int WeightId { get; set; }
-        public Weight Weight { get; set; }
+        public Weight? Weight { get; set; }
         public int HeightId { get; set; }
-        public Height Height { get; set; }
+        public Height? Height { get; set; }
         public int LocationId { get; set; }
-        public GymLocation Location { get; set; }
+        public GymLocation? Location { get; set; }
         public int UserId { get; set; }
-        public User User { get; set; }
+        public User? User { get; set; }
 
 
         public Member(string photo, int weightId, int heightId, int locationId, int userId)
@@ -30,11 +30,6 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
             HeightId = heightId;
             LocationId = locationId;
             UserId = userId;
-            CreatedOn = DateTime.Now;
-            CreatedBy = "Admin";
-            IsActive = false;
-            UpdatedBy = "Not Updated";
-            UpdatedOn = DateTime.Now;
         }
 
         
