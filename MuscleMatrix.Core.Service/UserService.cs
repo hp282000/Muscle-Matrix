@@ -37,7 +37,6 @@ namespace MuscleMatrix.Core.Service
             {
                 return "User Found";
             }
-
             return "User Not Found";
 
         }
