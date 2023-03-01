@@ -11,7 +11,7 @@ namespace MuscleMatrix.Infrastructure.Contract
 {
     public interface IAuthenticateRepository
     {
-        Task<User> Authorization(string userLogin);
+        Task<User> Authorization(UserLogin userLogin);
         Task<List<UserRoleMapping>> GetUserByEmail(string  userLogin);
     }
  

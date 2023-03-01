@@ -27,7 +27,7 @@ namespace Muscle_Matrix.Controllers
       
         }
         [HttpPost]
-        public async Task<IActionResult> Authenticate([FromBody] string userLogin)
+        public async Task<IActionResult> Authenticate([FromBody] UserLogin userLogin)
         {
             var user = await _authenticateRepository.Authorization(userLogin);
             if (user != null)
@@ -40,16 +40,16 @@ namespace Muscle_Matrix.Controllers
         }
 
         [NonAction]
-        public async Task<string> GenerateToken(string userLogin)
+        public async Task<string> GenerateToken(UserLogin userLogin)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-            var userRoles = await _authenticateRepository.GetUserByEmail(userLogin);
+            var userRoles = await _authenticateRepository.GetUserByEmail(userLogin.Email);
 
 
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Email,userLogin),
+                new Claim(ClaimTypes.Email,userLogin.Email),
             };
             foreach (var item in userRoles)
             {
