@@ -55,7 +55,7 @@ namespace MuscleMatrix.Infrastructure.Repository
                 throw new Exception("No Member Available");
             }
             
-           updateMember.UpdateData(memberRequestModel.UserId , memberRequestModel.LocationId , memberRequestModel.WeightId , memberRequestModel.HeightId ,memberRequestModel.photo);
+           updateMember.UpdateData(memberRequestModel.UserId , memberRequestModel.LocationId , memberRequestModel.WeightId , memberRequestModel.HeightId ,memberRequestModel.Photo.FileName);
 
             //updateMember.Name = MemberRequestModel.Name;
             //updateMember.Email = MemberRequestModel.Email;

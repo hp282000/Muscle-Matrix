@@ -18,7 +18,7 @@ namespace Muscle_Matrix.Controllers
         }
 
         [HttpPost("member")]
-        public async Task<IActionResult> AddMember(MemberRequestModel memberRequestModel)
+        public async Task<IActionResult> AddMember([FromForm]MemberRequestModel memberRequestModel)
         {
             await _memberService.AddMemberAsync(memberRequestModel);
 
