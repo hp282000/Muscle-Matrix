@@ -42,5 +42,24 @@ namespace MuscleMatrix.Core.Service
 
             return mapper;
         }
+
+        public async Task<int> DeleteMemberAsync(int id)
+        {
+            var deleteMember = await _imemberRepository.DeleteMember(id);
+
+            if (deleteMember == null)
+            {
+                throw new ArgumentNullException("No Record Found");
+            }
+            return id;
+        }
+
+        public async Task<MemberResponseModel> UpdateMemberAsync(MemberRequestModel memberRequestModel)
+        {
+            var updateMember = await _imemberRepository.UpdateMember(memberRequestModel);
+            var mapping = _mapper.Map<MemberResponseModel>(updateMember);
+
+            return mapping;
+        }
     }
 }

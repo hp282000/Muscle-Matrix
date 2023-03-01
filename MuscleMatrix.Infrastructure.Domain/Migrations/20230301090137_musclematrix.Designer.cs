@@ -12,8 +12,8 @@ using MuscleMatrix.Infrastructure.Domain.Context;
 namespace MuscleMatrix.Infrastructure.Domain.Migrations
 {
     [DbContext(typeof(ProjectContext))]
-    [Migration("20230222061440_init")]
-    partial class init
+    [Migration("20230301090137_musclematrix")]
+    partial class musclematrix
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -189,9 +189,8 @@ namespace MuscleMatrix.Infrastructure.Domain.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("HeightValue")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<float>("HeightValue")
+                        .HasColumnType("real");
 
                     b.HasKey("Id");
 

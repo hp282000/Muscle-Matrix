@@ -17,8 +17,10 @@ namespace Muscle_Matrix.Configuration
                 ForMember(urrm => urrm.Role , urm=> urm.MapFrom(x=> x.Role.Name));
             CreateMap<UserRequestModel,UserResponseModel>();
 
-            CreateMap<Member,MemberResponseModel>().ReverseMap();
-         
+            CreateMap<Member, MemberResponseModel>()
+                .ForMember(mrm => mrm.WeightValue, m => m.MapFrom(x => x.Weight.WeightValue))
+                .ForMember(mrm => mrm.HeightValue, m => m.MapFrom(x => x.Height.HeightValue))
+                .ForMember(mrm => mrm.LocationName, m => m.MapFrom(x => x.Location.LocationName));
         }
     }
 }

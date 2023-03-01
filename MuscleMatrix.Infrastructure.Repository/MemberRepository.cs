@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MuscleMatrix.Core.Domain.RequestModels;
 using MuscleMatrix.Infrastructure.Contract;
 using MuscleMatrix.Infrastructure.Domain.Context;
 using MuscleMatrix.Infrastructure.Domain.Entities;
@@ -33,6 +34,40 @@ namespace MuscleMatrix.Infrastructure.Repository
 
 
             return getMembers;
+        }
+        public async Task<int> DeleteMember(int id)
+        {
+            var deleteMember = _projectContext.Members.FirstOrDefault(x => x.Id == id);
+
+            _projectContext.Members.Remove(deleteMember);
+
+            return _projectContext.SaveChanges();
+        }
+        public async Task<Member> UpdateMember(MemberRequestModel memberRequestModel)
+        {
+
+            var updateMember = _projectContext.Members.Include(x=> x.User).Include(x=> x.Location).Include(x=> x.Weight).Include(x=> x.Height).FirstOrDefault(x => x.Id == memberRequestModel.Id);
+
+
+            if (updateMember == null)
+            {
+
+                throw new Exception("No Member Available");
+            }
+            
+           updateMember.UpdateData(memberRequestModel.UserId , memberRequestModel.LocationId , memberRequestModel.WeightId , memberRequestModel.HeightId ,memberRequestModel.photo);
+
+            //updateMember.Name = MemberRequestModel.Name;
+            //updateMember.Email = MemberRequestModel.Email;
+            //updateMember.ContactNo = MemberRequestModel.ContactNo;
+            //updateMember.Gender = MemberRequestModel.Gender;
+            //updateMember.DateOfBirth = MemberRequestModel.DateOfBirth;
+
+            _projectContext.Members.Update(updateMember);
+
+            _projectContext.SaveChanges();
+
+            return updateMember;
         }
     }
 }

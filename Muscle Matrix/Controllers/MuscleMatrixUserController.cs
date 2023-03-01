@@ -6,7 +6,7 @@ using MuscleMatrix.Core.Domain.RequestModels;
 
 namespace Muscle_Matrix.Controllers
 {
-    [Authorize(Roles = "Admin")]
+   // [Authorize(Roles = "Admin")]
     [Route("api/")] 
     [ApiController]
     public class MuscleMatrixUserController : ControllerBase
@@ -18,10 +18,11 @@ namespace Muscle_Matrix.Controllers
         }
 
         [HttpPost("user-login")]
-        
 
          public async Task<IActionResult> UserCheckLogin(UserLogin userLogin)
         {
+            try
+            {
             var checkLogin = await _userService.UserLoginAsync(userLogin);
 
             if (checkLogin == null)
@@ -30,6 +31,13 @@ namespace Muscle_Matrix.Controllers
             }
             else
                 return Ok(checkLogin);
+
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("User Not Found");
+            }
         }
 
 

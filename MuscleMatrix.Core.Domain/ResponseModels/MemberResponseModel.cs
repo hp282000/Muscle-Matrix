@@ -9,13 +9,6 @@ namespace MuscleMatrix.Core.Domain.ResponseModels
 {
     public class MemberResponseModel
     {
-        public string Name { get; set; }
-
-        public string Email { get; set; }
-        
-        public long ContactNo { get; set; }
-        
-        public string Gender { get; set; }
 
         public DateTime DateOfBirth { get; set; }
 
@@ -27,6 +20,10 @@ namespace MuscleMatrix.Core.Domain.ResponseModels
 
         public string LocationName { get; set; }
 
+        /// <summary>
+        /// it get data from User response model {name , email , contact no , etc}
+        /// </summary>
+        public UserResponseModel User { get; set; }
 
     }
 }
