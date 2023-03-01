@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MuscleMatrix.Core.Contract;
 using MuscleMatrix.Core.Domain.RequestModels;
+using MuscleMatrix.Core.Service;
 
 namespace Muscle_Matrix.Controllers
 {
@@ -16,19 +17,35 @@ namespace Muscle_Matrix.Controllers
             _memberService = memberService;
         }
 
-        [HttpPost]
+        [HttpPost("member")]
         public async Task<IActionResult> AddMember(MemberRequestModel memberRequestModel)
         {
             await _memberService.AddMemberAsync(memberRequestModel);
 
             return Ok(memberRequestModel);
         }
-        [HttpGet]
+        [HttpGet("members")]
         public async Task<IActionResult> GetMembers()
         {
             var getMembers = await _memberService.GetMemberAsync();
 
             return Ok(getMembers);
+        }
+
+        [HttpDelete("member")]
+        public async Task<IActionResult> DeleteMember(int id)
+        {
+            var deleteMember = await _memberService.DeleteMemberAsync(id);
+
+            return Ok(deleteMember);
+        }
+
+        [HttpPut("member")]
+        public async Task<IActionResult> UpdateMember(MemberRequestModel memberRequestModel)
+        {
+            var updateMember = await _memberService.UpdateMemberAsync(memberRequestModel);
+
+            return Ok(updateMember);
         }
     }
 }

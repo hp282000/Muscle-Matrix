@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MuscleMatrix.Infrastructure.Domain.Migrations
 {
-    public partial class init : Migration
+    public partial class musclematrix : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -33,7 +33,7 @@ namespace MuscleMatrix.Infrastructure.Domain.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    HeightValue = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    HeightValue = table.Column<float>(type: "real", nullable: false)
                 },
                 constraints: table =>
                 {

@@ -187,9 +187,8 @@ namespace MuscleMatrix.Infrastructure.Domain.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("HeightValue")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<float>("HeightValue")
+                        .HasColumnType("real");
 
                     b.HasKey("Id");
 

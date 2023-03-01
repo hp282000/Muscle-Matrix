@@ -32,6 +32,16 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
             UserId = userId;
         }
 
+        public Member UpdateData(int userId , int locationId , int heightId , int weightId , string photo )
+        {
+            Photo = photo;
+            WeightId = weightId;
+            HeightId = heightId;
+            LocationId = locationId;
+            UserId = userId;
+
+            return this;
+        }
         
 
     }     
