@@ -12,6 +12,8 @@ namespace MuscleMatrix.Infrastructure.Contract
 
         Task<int> DeleteUser(int id);
 
-        Task<User> UpdateUser(UserRequestModel userRequestModel);
+        Task<User> UpdateUser(User user);
+
+        Task<User> GeUserById(int id);
     }
 }

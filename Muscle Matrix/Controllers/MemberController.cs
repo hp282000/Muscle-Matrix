@@ -6,13 +6,13 @@ using MuscleMatrix.Core.Service;
 
 namespace Muscle_Matrix.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/")]
     [ApiController]
-    public class MuscleMatrixMemberController : ControllerBase
+    public class MemberController : ControllerBase
     {
         private readonly IMemberService _memberService;
 
-        public MuscleMatrixMemberController(IMemberService memberService)
+        public MemberController(IMemberService memberService)
         {
             _memberService = memberService;
         }
@@ -41,9 +41,9 @@ namespace Muscle_Matrix.Controllers
         }
 
         [HttpPut("member")]
-        public async Task<IActionResult> UpdateMember(MemberRequestModel memberRequestModel)
+        public async Task<IActionResult> UpdateMember([FromForm] MemberRequestModel memberRequestModel, int id)
         {
-            var updateMember = await _memberService.UpdateMemberAsync(memberRequestModel);
+            var updateMember = await _memberService.UpdateMemberAsync(memberRequestModel,id);
 
             return Ok(updateMember);
         }

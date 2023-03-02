@@ -1,6 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Muscle_Matrix.Configuration;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

@@ -9,10 +9,10 @@ namespace Muscle_Matrix.Controllers
    // [Authorize(Roles = "Admin")]
     [Route("api/")] 
     [ApiController]
-    public class MuscleMatrixUserController : ControllerBase
+    public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
-        public MuscleMatrixUserController(IUserService muscleMatrixUserService)
+        public UserController(IUserService muscleMatrixUserService)
         {
             _userService = muscleMatrixUserService;
         }
@@ -67,9 +67,9 @@ namespace Muscle_Matrix.Controllers
         }
 
         [HttpPut("user")]
-        public async Task<IActionResult> UpdateUser(UserRequestModel userRequestModel)
+        public async Task<IActionResult> UpdateUser(UserRequestModel userRequestModel, int id)
         {
-            var updateUser =await _userService.UpdateUserAsync(userRequestModel);
+            var updateUser =await _userService.UpdateUserAsync(userRequestModel,id);
 
             return Ok(updateUser);
         }

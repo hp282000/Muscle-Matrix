@@ -5,7 +5,7 @@ namespace Muscle_Matrix.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class MuscleMatrixTrainerController : ControllerBase
+    public class MuscleMatrixMembershipController : ControllerBase
     {
 
     }

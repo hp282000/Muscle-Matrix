@@ -8,11 +8,11 @@ namespace Muscle_Matrix.Controllers
     [Route("api/")]
     [ApiController]
 
-    public class MuscleMatrixUserRoleController : ControllerBase
+    public class UserRoleController : ControllerBase
     {
         private readonly IUserRoleService _userRoleService;
 
-        public MuscleMatrixUserRoleController(IUserRoleService userRoleService)
+        public UserRoleController(IUserRoleService userRoleService)
         {
             _userRoleService = userRoleService;
         }

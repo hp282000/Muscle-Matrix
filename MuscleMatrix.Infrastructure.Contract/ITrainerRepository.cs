@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace MuscleMatrix.Infrastructure.Contract
 {
-    public interface IMemberRepository
+    public interface ITrainerRepository
     {
-        Task<int> AddMember(Member member);
+        Task<int> AddTrainer(Trainer trainer);
 
-        Task<List<Member>> GetMember();
+        Task<List<Trainer>> GetTrainer();
 
-        Task<int> DeleteMember(int id);
+         Task<Trainer> GetTrainerById(int id);
+        Task<int> DeleteTrainer(int id);
 
-        Task<Member> UpdateMember(Member member);
-        Task<Member> GetMemberById(int id);
+        Task<Trainer> UpdateTrainer(Trainer trainer);
     }
 }

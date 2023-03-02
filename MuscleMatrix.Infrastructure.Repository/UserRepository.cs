@@ -26,6 +26,7 @@ namespace MuscleMatrix.Infrastructure.Repository
             return checkUser;
         }
 
+
         public async Task<int> AddUser(User user)
         {
 
@@ -40,6 +41,14 @@ namespace MuscleMatrix.Infrastructure.Repository
 
             return getUsers;
         }
+        public async Task<User> GeUserById(int id)
+        {
+
+            var getUserById = await _projectContext.Users.FirstOrDefaultAsync(x=> x.Id == id);
+
+            return getUserById;
+        }
+
         public async Task<int> DeleteUser(int id)
         {
             var deleteUser = _projectContext.Users.FirstOrDefault(x => x.Id == id);
@@ -48,29 +57,14 @@ namespace MuscleMatrix.Infrastructure.Repository
 
             return _projectContext.SaveChanges();
         }
-        public async Task<User> UpdateUser(UserRequestModel userRequestModel)
+        public async Task<User> UpdateUser(User user)
         {
 
-            var updateUser = _projectContext.Users.FirstOrDefault(x=> x.Id == userRequestModel.Id);
-
-
-            if(updateUser == null) {
-
-                throw new Exception("No User Available");
-            }
-            updateUser.UpdateData(userRequestModel.Name, userRequestModel.Email , userRequestModel.ContactNo , userRequestModel.Gender , userRequestModel.DateOfBirth);
-
-            //updateUser.Name = userRequestModel.Name;
-            //updateUser.Email = userRequestModel.Email;
-            //updateUser.ContactNo = userRequestModel.ContactNo;
-            //updateUser.Gender = userRequestModel.Gender;
-            //updateUser.DateOfBirth = userRequestModel.DateOfBirth;
-
-             _projectContext.Users.Update(updateUser);
+             _projectContext.Users.Update(user);
             
-           _projectContext.SaveChanges();
+           await _projectContext.SaveChangesAsync();
             
-            return updateUser;
+            return user;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using MuscleMatrix.Core.Domain.RequestModels;
 using MuscleMatrix.Core.Domain.ResponseModels;
+using MuscleMatrix.Infrastructure.Domain.Entities;
 
 namespace MuscleMatrix.Core.Contract
 {
@@ -13,6 +14,8 @@ namespace MuscleMatrix.Core.Contract
 
         Task<int> DeleteUserAsync(int id);
 
-        Task<UserResponseModel>  UpdateUserAsync(UserRequestModel userRequestModel);
+        Task<UserResponseModel>  UpdateUserAsync(UserRequestModel userRequestModel , int id);
+
+
     }
 }

@@ -54,11 +54,17 @@ namespace MuscleMatrix.Core.Service
             return id;
         }
 
-        public async Task<MemberResponseModel> UpdateMemberAsync(MemberRequestModel memberRequestModel)
+        public async Task<MemberResponseModel> UpdateMemberAsync(MemberRequestModel memberRequestModel, int id)
         {
-            var updateMember = await _imemberRepository.UpdateMember(memberRequestModel);
+           
+            var getMember = await _imemberRepository.GetMemberById(id);
+            if (getMember == null)
+                throw new Exception("Member Not Found");
+            getMember.UpdateData(memberRequestModel.UserId, memberRequestModel.LocationId, memberRequestModel.WeightId, memberRequestModel.HeightId, memberRequestModel.Photo.FileName);
+         
+            var updateMember = await _imemberRepository.UpdateMember(getMember);
             var mapping = _mapper.Map<MemberResponseModel>(updateMember);
-
+           
             return mapping;
         }
     }

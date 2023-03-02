@@ -7,10 +7,10 @@ namespace Muscle_Matrix.Controllers
 {
     [Route("api/")]
     [ApiController]
-    public class MuscleMatrixLocationController : ControllerBase
+    public class LocationController : ControllerBase
     {
         private readonly ILocationService _locationService;
-        public MuscleMatrixLocationController(ILocationService locationService)
+        public LocationController(ILocationService locationService)
         {
             _locationService = locationService;
         }
