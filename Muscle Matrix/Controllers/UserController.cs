@@ -9,10 +9,10 @@ namespace Muscle_Matrix.Controllers
    // [Authorize(Roles = "Admin")]
     [Route("api/")] 
     [ApiController]
-    public class MuscleMatrixUserController : ControllerBase
+    public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
-        public MuscleMatrixUserController(IUserService muscleMatrixUserService)
+        public UserController(IUserService muscleMatrixUserService)
         {
             _userService = muscleMatrixUserService;
         }

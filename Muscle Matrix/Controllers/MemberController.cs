@@ -8,11 +8,11 @@ namespace Muscle_Matrix.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class MuscleMatrixMemberController : ControllerBase
+    public class MemberController : ControllerBase
     {
         private readonly IMemberService _memberService;
 
-        public MuscleMatrixMemberController(IMemberService memberService)
+        public MemberController(IMemberService memberService)
         {
             _memberService = memberService;
         }

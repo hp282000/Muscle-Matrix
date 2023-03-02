@@ -28,19 +28,33 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
         public GymLocation Location { get; set; }
 
 
-        public Trainer(int experience, string speciality, string experienceLetter, string profilePhoto,  int userId)
+        public Trainer(int experience, string speciality, string experienceLetter, string profilePhoto,  int userId , int locationId , int heightId , int weightId)
         {
             YearofExperience = experience;
             Speciality = speciality;
             ExperienceDiscription = experienceLetter;
             ProfilePhoto = profilePhoto;
-            
+            WeightId = weightId;
+            HeightId= heightId;
             UserId = userId;
-            User.CreatedOn = DateTime.Now;
-            User.CreatedBy = User.Name;
-            User.IsActive = true;
+            LocationId = locationId;
 
 
         }
+
+        public Trainer UpdateData(int experience, string speciality, string experienceLetter, string profilePhoto, int userId, int locationId, int heightId, int weightId)
+        {
+            YearofExperience = experience;
+            Speciality = speciality;
+            ExperienceDiscription = experienceLetter;
+            ProfilePhoto= profilePhoto;
+            WeightId = weightId;
+            HeightId= heightId;
+            UserId = userId; 
+            LocationId = locationId;
+
+            return this;
+        }
+
     }
 }
