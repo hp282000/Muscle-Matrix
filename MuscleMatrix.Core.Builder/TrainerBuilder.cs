@@ -11,7 +11,7 @@ namespace MuscleMatrix.Core.Builder
     public static class TrainerBuilder
     {
         public static Trainer Build(TrainerRequestModel trainerRequestModel)
-        {
+        { 
             return new Trainer(trainerRequestModel.YearofExperience, trainerRequestModel.Speciality, trainerRequestModel.ExperienceDiscription, trainerRequestModel.ProfilePhoto.FileName, trainerRequestModel.UserId, trainerRequestModel.LocationId, trainerRequestModel.HeightId, trainerRequestModel.WeightId);
         }
     }
