@@ -16,6 +16,6 @@ namespace MuscleMatrix.Core.Contract
 
         Task<int> DeleteTrainerAsync(int id);
 
-        Task<TrainerResponseModel> UpdateTrainerAsync(TrainerRequestModel trainerRequestModel);
+        Task<TrainerResponseModel> UpdateTrainerAsync(TrainerRequestModel trainerRequestModel, int id);
     }
 }

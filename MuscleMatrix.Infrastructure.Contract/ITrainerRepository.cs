@@ -14,8 +14,9 @@ namespace MuscleMatrix.Infrastructure.Contract
 
         Task<List<Trainer>> GetTrainer();
 
+         Task<Trainer> GetTrainerById(int id);
         Task<int> DeleteTrainer(int id);
 
-        Task<Trainer> UpdateTrainer(TrainerRequestModel trainerRequestModel);
+        Task<Trainer> UpdateTrainer(Trainer trainer);
     }
 }

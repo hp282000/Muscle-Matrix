@@ -35,6 +35,13 @@ namespace MuscleMatrix.Infrastructure.Repository
 
             return getMembers;
         }
+        public async Task<Member> GetMemberById(int id)
+        {
+            var getMemberById = await _projectContext.Members.Include(x => x.User).Include(x => x.Height).Include(x => x.Weight).Include(x => x.Location).FirstOrDefaultAsync(x => x.Id == id);
+
+
+            return getMemberById;
+        }
         public async Task<int> DeleteMember(int id)
         {
             var deleteMember = _projectContext.Members.FirstOrDefault(x => x.Id == id);
@@ -43,31 +50,22 @@ namespace MuscleMatrix.Infrastructure.Repository
 
             return _projectContext.SaveChanges();
         }
-        public async Task<Member> UpdateMember(MemberRequestModel memberRequestModel)
+        public async Task<Member> UpdateMember(Member member)
         {
 
-            var updateMember = _projectContext.Members.Include(x=> x.User).Include(x=> x.Location).Include(x=> x.Weight).Include(x=> x.Height).FirstOrDefault(x => x.Id == memberRequestModel.Id);
+          //  var updateMember = _projectContext.Members.Include(x=> x.User).Include(x=> x.Location).Include(x=> x.Weight).Include(x=> x.Height).FirstOrDefault(x => x.Id == member.id);
 
+            //if (updateMember == null)
+            //{ 
 
-            if (updateMember == null)
-            {
+            //    throw new Exception("No Member Available");
+            //}
 
-                throw new Exception("No Member Available");
-            }
-            
-           updateMember.UpdateData(memberRequestModel.UserId , memberRequestModel.LocationId , memberRequestModel.WeightId , memberRequestModel.HeightId ,memberRequestModel.Photo.FileName);
+             _projectContext.Members.Update(member);
 
-            //updateMember.Name = MemberRequestModel.Name;
-            //updateMember.Email = MemberRequestModel.Email;
-            //updateMember.ContactNo = MemberRequestModel.ContactNo;
-            //updateMember.Gender = MemberRequestModel.Gender;
-            //updateMember.DateOfBirth = MemberRequestModel.DateOfBirth;
+            await _projectContext.SaveChangesAsync();
 
-            _projectContext.Members.Update(updateMember);
-
-            _projectContext.SaveChanges();
-
-            return updateMember;
+            return member;
         }
     }
 }

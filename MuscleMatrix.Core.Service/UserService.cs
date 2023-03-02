@@ -83,9 +83,11 @@ namespace MuscleMatrix.Core.Service
             return id;
         }
 
-        public async Task<UserResponseModel> UpdateUserAsync(UserRequestModel userRequestModel)
+        public async Task<UserResponseModel> UpdateUserAsync(UserRequestModel userRequestModel, int id)
         {
-            var updateUser = await _userRepository.UpdateUser(userRequestModel);
+            var getUser = await _userRepository.GeUserById(id);
+            getUser.UpdateData(userRequestModel.Name, userRequestModel.Email, userRequestModel.ContactNo, userRequestModel.Gender, userRequestModel.DateOfBirth);
+            var updateUser = await _userRepository.UpdateUser(getUser);
             var mapping = _mapper.Map<UserResponseModel>(updateUser);
 
             return mapping;

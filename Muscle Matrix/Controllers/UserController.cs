@@ -67,9 +67,9 @@ namespace Muscle_Matrix.Controllers
         }
 
         [HttpPut("user")]
-        public async Task<IActionResult> UpdateUser(UserRequestModel userRequestModel)
+        public async Task<IActionResult> UpdateUser(UserRequestModel userRequestModel, int id)
         {
-            var updateUser =await _userService.UpdateUserAsync(userRequestModel);
+            var updateUser =await _userService.UpdateUserAsync(userRequestModel,id);
 
             return Ok(updateUser);
         }

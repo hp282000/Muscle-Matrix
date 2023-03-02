@@ -6,7 +6,7 @@ using MuscleMatrix.Core.Service;
 
 namespace Muscle_Matrix.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/")]
     [ApiController]
     public class TrainerController : ControllerBase
     {
@@ -39,9 +39,9 @@ namespace Muscle_Matrix.Controllers
             return Ok(deleteTrainer);
         }
         [HttpPut("trainer")]
-        public async Task<IActionResult> UpdateTrainer(TrainerRequestModel trainerRequestModel)
+        public async Task<IActionResult> UpdateTrainer([FromForm] TrainerRequestModel trainerRequestModel,int id )
         {
-            var updateTrainer = await _trainerService.UpdateTrainerAsync(trainerRequestModel);
+            var updateTrainer = await _trainerService.UpdateTrainerAsync(trainerRequestModel,id);
 
             return Ok(updateTrainer);
         }

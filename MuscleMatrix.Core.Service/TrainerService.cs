@@ -42,6 +42,9 @@ namespace MuscleMatrix.Core.Service
             return mapper;
         }
 
+
+       
+
         public async Task<int> DeleteTrainerAsync(int id)
         {
             var deleteTrainer = await _itrainerRepository.DeleteTrainer(id);
@@ -53,9 +56,13 @@ namespace MuscleMatrix.Core.Service
             return id;
         }
 
-        public async Task<TrainerResponseModel> UpdateTrainerAsync(TrainerRequestModel trainerRequestModel)
+        public async Task<TrainerResponseModel> UpdateTrainerAsync(TrainerRequestModel trainerRequestModel, int id)
         {
-            var updateTrainer = await _itrainerRepository.UpdateTrainer(trainerRequestModel);
+            var getTrainer = await _itrainerRepository.GetTrainerById(id);
+
+            getTrainer.UpdateData(trainerRequestModel.YearofExperience, trainerRequestModel.ExperienceDiscription, trainerRequestModel.Speciality, trainerRequestModel.ProfilePhoto.FileName, trainerRequestModel.UserId, trainerRequestModel.LocationId, trainerRequestModel.HeightId, trainerRequestModel.WeightId);
+
+            var updateTrainer = await _itrainerRepository.UpdateTrainer(getTrainer);
             var mapping = _mapper.Map<TrainerResponseModel>(updateTrainer);
 
             return mapping;

@@ -35,6 +35,14 @@ namespace MuscleMatrix.Infrastructure.Repository
            
             return getTrainers;
         }
+
+        public async Task<Trainer> GetTrainerById(int id)
+        {
+            var getTrainerById = await _projectContext.Trainers.Include(x => x.User).Include(x => x.Height).Include(x => x.Weight).Include(x => x.Location).FirstOrDefaultAsync(x=> x.Id == id);
+
+            return getTrainerById;
+
+        }
         public async Task<int> DeleteTrainer(int id)
         {
             var deleteTrainer = _projectContext.Trainers.FirstOrDefault(x => x.Id == id);
@@ -43,26 +51,17 @@ namespace MuscleMatrix.Infrastructure.Repository
 
             return _projectContext.SaveChanges();
         }
-        public async Task<Trainer> UpdateTrainer(TrainerRequestModel trainerRequestModel)
-        {
+        public async Task<Trainer> UpdateTrainer(Trainer trainer)
 
-            var updateTrainer = _projectContext.Trainers.Include(x => x.User).Include(x => x.Location).Include(x => x.Weight).Include(x => x.Height).FirstOrDefault(x => x.Id == trainerRequestModel.Id);
-
-
-            if (updateTrainer == null)
-            {
-
-                throw new Exception("No Trainer Available");
-            }
-
-            updateTrainer.UpdateData(trainerRequestModel.YearofExperience, trainerRequestModel.ExperienceDiscription,trainerRequestModel.Speciality , trainerRequestModel.ProfilePhoto.FileName , trainerRequestModel.UserId , trainerRequestModel.LocationId,trainerRequestModel.HeightId , trainerRequestModel.WeightId);
-
+        { 
       
-            _projectContext.Trainers.Update(updateTrainer);
+            _projectContext.Trainers.Update(trainer);
 
-            _projectContext.SaveChanges();
+             await _projectContext.SaveChangesAsync();
 
-            return updateTrainer;
+            return trainer;
+
+
         }
     }
 }

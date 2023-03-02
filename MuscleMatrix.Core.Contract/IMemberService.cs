@@ -16,6 +16,6 @@ namespace MuscleMatrix.Core.Contract
 
         Task<int> DeleteMemberAsync(int id);
 
-        Task<MemberResponseModel> UpdateMemberAsync(MemberRequestModel memberRequestModel);
+        Task<MemberResponseModel> UpdateMemberAsync(MemberRequestModel memberRequestModel , int id);
     }
 }

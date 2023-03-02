@@ -16,6 +16,7 @@ namespace MuscleMatrix.Infrastructure.Contract
 
         Task<int> DeleteMember(int id);
 
-        Task<Member> UpdateMember(MemberRequestModel memberRequestModel);
+        Task<Member> UpdateMember(Member member);
+        Task<Member> GetMemberById(int id);
     }
 }
