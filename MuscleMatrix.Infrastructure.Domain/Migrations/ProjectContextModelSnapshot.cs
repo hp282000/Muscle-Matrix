@@ -255,9 +255,11 @@ namespace MuscleMatrix.Infrastructure.Domain.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("MemberId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
 
                     b.Property<string>("UpdatedBy")
                         .HasColumnType("nvarchar(max)");
@@ -266,6 +268,8 @@ namespace MuscleMatrix.Infrastructure.Domain.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("MemberId");
 
                     b.ToTable("Memberships");
                 });
@@ -277,12 +281,6 @@ namespace MuscleMatrix.Infrastructure.Domain.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("MemberId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MembershipId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Status")
                         .IsRequired()
@@ -298,10 +296,6 @@ namespace MuscleMatrix.Infrastructure.Domain.Migrations
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("MemberId");
-
-                    b.HasIndex("MembershipId");
 
                     b.ToTable("MembershipPayments");
                 });
@@ -567,7 +561,7 @@ namespace MuscleMatrix.Infrastructure.Domain.Migrations
                     b.Navigation("Weight");
                 });
 
-            modelBuilder.Entity("MuscleMatrix.Infrastructure.Domain.Entities.MembershipPayment", b =>
+            modelBuilder.Entity("MuscleMatrix.Infrastructure.Domain.Entities.Membership", b =>
                 {
                     b.HasOne("MuscleMatrix.Infrastructure.Domain.Entities.Member", "Member")
                         .WithMany()
@@ -575,15 +569,7 @@ namespace MuscleMatrix.Infrastructure.Domain.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MuscleMatrix.Infrastructure.Domain.Entities.Membership", "Membership")
-                        .WithMany()
-                        .HasForeignKey("MembershipId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Member");
-
-                    b.Navigation("Membership");
                 });
 
             modelBuilder.Entity("MuscleMatrix.Infrastructure.Domain.Entities.Trainer", b =>

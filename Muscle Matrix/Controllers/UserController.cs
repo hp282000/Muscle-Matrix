@@ -6,7 +6,7 @@ using MuscleMatrix.Core.Domain.RequestModels;
 
 namespace Muscle_Matrix.Controllers
 {
-   // [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     [Route("api/")] 
     [ApiController]
     public class UserController : ControllerBase
@@ -17,7 +17,7 @@ namespace Muscle_Matrix.Controllers
             _userService = muscleMatrixUserService;
         }
 
-        [HttpPost("user-login")]
+        [HttpPost("check-user")]
 
          public async Task<IActionResult> UserCheckLogin(UserLogin userLogin)
         {

@@ -10,7 +10,6 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
 {
     public class Member
     {
-
         public int Id { get; set; }
         public string Photo { get; set; }
         public int WeightId { get; set; }

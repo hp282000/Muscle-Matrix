@@ -18,26 +18,18 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
 
         public string Status { get; set; }
 
-        public int MemberId { get; set; }
-
-        public Member Member { get; set; }
-
-        public int MembershipId { get; set; }
-
-        public Membership Membership { get; set; }
-
         public MembershipPayment()
         {
         }
 
-        public MembershipPayment(long transactionId, long transactionAmount, DateTime transactionDate, string status, int memberId, int membershipId)
+        public MembershipPayment(long transactionId, long transactionAmount, DateTime transactionDate, string status)
         {
             TransactionId = transactionId;
             TransactionAmount = transactionAmount;
             TransactionDate = transactionDate;
             Status = status;
-            MemberId = memberId;
-            MembershipId = membershipId;
+          
+            //MembershipId = membershipId;
         }
 
     }

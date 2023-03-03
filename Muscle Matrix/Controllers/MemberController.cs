@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MuscleMatrix.Core.Contract;
 using MuscleMatrix.Core.Domain.RequestModels;
@@ -6,6 +7,7 @@ using MuscleMatrix.Core.Service;
 
 namespace Muscle_Matrix.Controllers
 {
+    [Authorize(Roles ="Member ,Admin")]
     [Route("api/")]
     [ApiController]
     public class MemberController : ControllerBase
