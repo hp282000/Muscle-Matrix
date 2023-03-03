@@ -49,6 +49,7 @@ namespace MuscleMatrix.Core.Service
             var computepassword = hsa.ComputeHash(password);
 
             userpassword.Password = computepassword;
+          //  userpassword.Password = password;    
             userpassword.PasswordSalt = hsa.Key;
 
             var addUser = UserBuilder.Build(userRequestModel, userpassword);

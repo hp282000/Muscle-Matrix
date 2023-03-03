@@ -7,6 +7,7 @@ namespace Muscle_Matrix.Controllers
 {
     [Route("api/")]
     [ApiController]
+    
 
     public class UserRoleController : ControllerBase
     {

@@ -36,7 +36,8 @@ namespace MuscleMatrix.Infrastructure.Repository
             return await _projectContext.userRoleMappings.Include(x => x.User).Include(x => x.Role).Where(x => x.User.Email == userLogin).ToListAsync();
 
             }
-           
-        }
+    
+
+    }
     }
 
