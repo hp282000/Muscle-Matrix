@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MuscleMatrix.Infrastructure.Domain.Migrations
 {
-    public partial class musclematrix : Migration
+    public partial class MuscleMatrix : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -41,23 +41,19 @@ namespace MuscleMatrix.Infrastructure.Domain.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Memberships",
+                name: "MembershipPayments",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Cost = table.Column<long>(type: "bigint", nullable: false),
-                    DurationDay = table.Column<int>(type: "int", nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UpdatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false)
+                    TransactionId = table.Column<long>(type: "bigint", nullable: false),
+                    TransactionAmount = table.Column<long>(type: "bigint", nullable: false),
+                    TransactionDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Memberships", x => x.Id);
+                    table.PrimaryKey("PK_MembershipPayments", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -238,31 +234,28 @@ namespace MuscleMatrix.Infrastructure.Domain.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "MembershipPayments",
+                name: "Memberships",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    TransactionId = table.Column<long>(type: "bigint", nullable: false),
-                    TransactionAmount = table.Column<long>(type: "bigint", nullable: false),
-                    TransactionDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Type = table.Column<int>(type: "int", nullable: false),
+                    Cost = table.Column<long>(type: "bigint", nullable: false),
+                    DurationDay = table.Column<int>(type: "int", nullable: false),
                     MemberId = table.Column<int>(type: "int", nullable: false),
-                    MembershipId = table.Column<int>(type: "int", nullable: false)
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UpdatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MembershipPayments", x => x.Id);
+                    table.PrimaryKey("PK_Memberships", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_MembershipPayments_Members_MemberId",
+                        name: "FK_Memberships_Members_MemberId",
                         column: x => x.MemberId,
                         principalTable: "Members",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_MembershipPayments_Memberships_MembershipId",
-                        column: x => x.MembershipId,
-                        principalTable: "Memberships",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -393,14 +386,9 @@ namespace MuscleMatrix.Infrastructure.Domain.Migrations
                 column: "WeightId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_MembershipPayments_MemberId",
-                table: "MembershipPayments",
+                name: "IX_Memberships_MemberId",
+                table: "Memberships",
                 column: "MemberId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_MembershipPayments_MembershipId",
-                table: "MembershipPayments",
-                column: "MembershipId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Trainers_HeightId",
@@ -445,6 +433,9 @@ namespace MuscleMatrix.Infrastructure.Domain.Migrations
                 name: "MembershipPayments");
 
             migrationBuilder.DropTable(
+                name: "Memberships");
+
+            migrationBuilder.DropTable(
                 name: "userRoleMappings");
 
             migrationBuilder.DropTable(
@@ -455,9 +446,6 @@ namespace MuscleMatrix.Infrastructure.Domain.Migrations
 
             migrationBuilder.DropTable(
                 name: "Members");
-
-            migrationBuilder.DropTable(
-                name: "Memberships");
 
             migrationBuilder.DropTable(
                 name: "Roles");
