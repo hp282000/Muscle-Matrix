@@ -23,6 +23,10 @@ namespace Muscle_Matrix.Configuration
             services.AddTransient<ITrainerRepository, TrainerRepository>();
             services.AddTransient<IMembershipService, MembershipService>();
             services.AddTransient<IMembershipRepository, MembershipRepository>();
+            services.AddTransient<IPasswordChangeService, PasswordChangeService>();
+            services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
+
+            services.AddTransient<IPasswordChangeRepository, PasswordChangeRepository>();
 
             services.AddAutoMapper(typeof(Program));
         }

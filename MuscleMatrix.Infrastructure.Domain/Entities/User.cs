@@ -37,6 +37,12 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
             UpdatedOn= DateTime.Now;
             
         }
+        public User UpdatePassword(byte[] password, byte[] passwordKey)
+        {
+            Password = password;
+            PasswordSalt = passwordKey;
+            return this;
+        }
 
         public User UpdateData(string name, string email, long contactNo, string gender, DateTime dateOfBirth)
         {

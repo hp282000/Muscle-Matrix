@@ -13,6 +13,7 @@ namespace MuscleMatrix.Infrastructure.Contract
     {
         Task<User> Authorization(UserLogin userLogin);
         Task<List<UserRoleMapping>> GetUserByEmail(string  userLogin);
+      //  Task<User> GetEmail(string email);
     }
  
 }
