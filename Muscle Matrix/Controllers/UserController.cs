@@ -6,15 +6,17 @@ using MuscleMatrix.Core.Domain.RequestModels;
 
 namespace Muscle_Matrix.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin , Member")]
     [Route("api/")] 
     [ApiController]
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
-        public UserController(IUserService muscleMatrixUserService)
+        private readonly IPasswordChangeService _passwordChangeService;
+        public UserController(IUserService muscleMatrixUserService, IPasswordChangeService passwordChangeService)
         {
             _userService = muscleMatrixUserService;
+            _passwordChangeService = passwordChangeService;
         }
 
         [HttpPost("check-user")]
@@ -72,6 +74,14 @@ namespace Muscle_Matrix.Controllers
             var updateUser =await _userService.UpdateUserAsync(userRequestModel,id);
 
             return Ok(updateUser);
+        }
+
+        [HttpPut("change-password")]
+        public async Task<IActionResult> ChangePassword(PasswordchangeRequestModel passwordchange)
+        {
+            var changepassword = await _passwordChangeService.ChangePasswordAsync(passwordchange);
+            return Ok(changepassword);
+
         }
     }
 }
