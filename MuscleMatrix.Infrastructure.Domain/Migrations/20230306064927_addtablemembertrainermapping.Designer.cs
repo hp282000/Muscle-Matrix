@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MuscleMatrix.Infrastructure.Domain.Context;
 
@@ -11,9 +12,10 @@ using MuscleMatrix.Infrastructure.Domain.Context;
 namespace MuscleMatrix.Infrastructure.Domain.Migrations
 {
     [DbContext(typeof(ProjectContext))]
-    partial class ProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20230306064927_addtablemembertrainermapping")]
+    partial class addtablemembertrainermapping
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -316,10 +318,6 @@ namespace MuscleMatrix.Infrastructure.Domain.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MemberId");
-
-                    b.HasIndex("TrainerId");
-
                     b.ToTable("memberTrainerMappings");
                 });
 
@@ -593,25 +591,6 @@ namespace MuscleMatrix.Infrastructure.Domain.Migrations
                         .IsRequired();
 
                     b.Navigation("Member");
-                });
-
-            modelBuilder.Entity("MuscleMatrix.Infrastructure.Domain.Entities.MemberTrainerMapping", b =>
-                {
-                    b.HasOne("MuscleMatrix.Infrastructure.Domain.Entities.Member", "Member")
-                        .WithMany()
-                        .HasForeignKey("MemberId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("MuscleMatrix.Infrastructure.Domain.Entities.Trainer", "Trainer")
-                        .WithMany()
-                        .HasForeignKey("TrainerId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Member");
-
-                    b.Navigation("Trainer");
                 });
 
             modelBuilder.Entity("MuscleMatrix.Infrastructure.Domain.Entities.Trainer", b =>

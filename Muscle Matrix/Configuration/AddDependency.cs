@@ -23,6 +23,9 @@ namespace Muscle_Matrix.Configuration
             services.AddTransient<ITrainerRepository, TrainerRepository>();
             services.AddTransient<IMembershipService, MembershipService>();
             services.AddTransient<IMembershipRepository, MembershipRepository>();
+            services.AddTransient<IMemberTrainerService, MemberTrainerService>();
+            services.AddTransient<IMemberTrainerRepository, MemberTrainerRepository>();
+
 
             services.AddAutoMapper(typeof(Program));
         }

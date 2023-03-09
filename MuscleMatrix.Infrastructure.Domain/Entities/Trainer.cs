@@ -21,7 +21,7 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
         public int HeightId { get; set; }
         public Height Height { get; set; }
         public int UserId { get; set; }
-        public User User { get; set; }  
+        public  User User { get; set; }  
 
         public int LocationId { get; set; }
 

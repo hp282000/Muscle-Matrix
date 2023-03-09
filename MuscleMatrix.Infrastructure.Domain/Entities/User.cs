@@ -31,7 +31,8 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
             Password = password;
             PasswordSalt = passwordSalt;
             CreatedOn= DateTime.Now;
-            CreatedBy = name;
+            
+
             IsActive = true; 
             UpdatedBy= "Not Updated";
             UpdatedOn= DateTime.Now;

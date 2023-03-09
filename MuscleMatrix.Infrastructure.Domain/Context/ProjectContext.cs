@@ -42,5 +42,21 @@ namespace MuscleMatrix.Infrastructure.Domain.Context
         public DbSet<Weight> Weights { get; set; }  
         public DbSet<Booking> Bookings { get; set; }
 
+        public DbSet<MemberTrainerMapping> memberTrainerMappings { get; set;}
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+
+            modelBuilder.Entity<MemberTrainerMapping>()
+                .HasOne(s => s.Member)
+                .WithMany()
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<MemberTrainerMapping>()
+                .HasOne(s => s.Trainer)
+                .WithMany()
+                .OnDelete(DeleteBehavior.Restrict);
+
+        }
     }
 }
