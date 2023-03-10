@@ -5,9 +5,9 @@ using MuscleMatrix.Infrastructure.Domain.Entities;
 
 namespace Muscle_Matrix.Configuration
 {
-    public class MappperConfiguration : Profile
+    public class AddMapperProfile : Profile
     {
-        public MappperConfiguration()
+        public AddMapperProfile()
         {
 
             CreateMap<User,UserResponseModel>();

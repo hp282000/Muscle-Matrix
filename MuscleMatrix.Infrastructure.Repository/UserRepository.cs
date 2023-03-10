@@ -41,7 +41,7 @@ namespace MuscleMatrix.Infrastructure.Repository
 
             return getUsers;
         }
-        public async Task<User> GeUserById(int id)
+        public async Task<User> GetUserById(int id)
         {
 
             var getUserById = await _projectContext.Users.FirstOrDefaultAsync(x=> x.Id == id);
@@ -55,7 +55,7 @@ namespace MuscleMatrix.Infrastructure.Repository
 
             _projectContext.Users.Remove(deleteUser);
 
-            return _projectContext.SaveChanges();
+            return await _projectContext.SaveChangesAsync();
         }
         public async Task<User> UpdateUser(User user)
         {
