@@ -28,8 +28,11 @@ namespace Muscle_Matrix.Configuration
                 .ForMember(trm => trm.LocationName,t => t.MapFrom(x => x.Location.LocationName));
 
             CreateMap<Membership, MembershipResponseModel>();
-         //       .ForMember(mrm=> mrm)
-             
+            //       .ForMember(mrm=> mrm)
+
+            CreateMap<MemberTrainerMapping, MemberTrainerResponseModel>();
+              //  .ForMember(mtrm => mtrm.Member.HeightValue, m => m.MapFrom(x => x.Member.Height.HeightValue));
+                
         
         }
     }

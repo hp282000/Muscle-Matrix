@@ -13,8 +13,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{A7E7930C-3
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{1CAE4095-750F-47D3-88B9-F200885903AA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{5BF5E819-FCE6-4187-86C2-86E3EA8B3A71}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MuscleMatrix.Infrastructure.Contract", "MuscleMatrix.Infrastructure.Contract\MuscleMatrix.Infrastructure.Contract.csproj", "{2A875EA2-F72A-4FDE-86EC-DCA57D49115E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MuscleMatrix.Infrastructure.Domain", "MuscleMatrix.Infrastructure.Domain\MuscleMatrix.Infrastructure.Domain.csproj", "{59070744-6A5A-4BBB-AA53-8793179D5638}"
@@ -29,7 +27,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MuscleMatrix.Core.Service",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MuscleMatrix.Core.Builder", "MuscleMatrix.Core.Builder\MuscleMatrix.Core.Builder.csproj", "{4011C461-55EA-4A17-908F-5635992288B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTesting", "UnitTesting\UnitTesting.csproj", "{2CA66542-7DA4-4B53-92E2-7443FAA95835}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTesting", "UnitTesting\UnitTesting.csproj", "{2CA66542-7DA4-4B53-92E2-7443FAA95835}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -86,7 +84,6 @@ Global
 		{1F26BAEA-8EF6-4294-B7E1-F1A6A89F9A1F} = {A7E7930C-3555-4B4C-B7EF-1A1EA2B90B2D}
 		{CB8AC786-CCA1-4762-B80C-291AB08DC7AD} = {A7E7930C-3555-4B4C-B7EF-1A1EA2B90B2D}
 		{4011C461-55EA-4A17-908F-5635992288B2} = {A7E7930C-3555-4B4C-B7EF-1A1EA2B90B2D}
-		{2CA66542-7DA4-4B53-92E2-7443FAA95835} = {5BF5E819-FCE6-4187-86C2-86E3EA8B3A71}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {34FC6982-07C8-420C-A0DF-734B23D5CB7D}
