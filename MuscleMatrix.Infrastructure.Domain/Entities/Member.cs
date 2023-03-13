@@ -21,15 +21,18 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
         public int UserId { get; set; }
         public  User? User { get; set; }
 
-
-        public Member(string photo, int weightId, int heightId, int locationId, int userId)
+        public Member()
         {
-         
-            Photo = photo;
+
+        }
+        public Member( int weightId, int heightId, int locationId, int userId, string image)
+        {
+
             WeightId = weightId;
             HeightId = heightId;
             LocationId = locationId;
             UserId = userId;
+            Photo = image;
         }
 
         public Member UpdateData(int userId , int locationId , int heightId , int weightId , string photo )

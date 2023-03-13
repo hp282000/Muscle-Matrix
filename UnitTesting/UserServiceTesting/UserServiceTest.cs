@@ -11,6 +11,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
+using Xunit;
 
 namespace UnitTesting.UserServiceTesting
 {
@@ -47,22 +49,25 @@ namespace UnitTesting.UserServiceTesting
 
         [Fact]
         public async void AddUser_MustPass()
-
         {
             UserRequestModel user = new UserRequestModel()
             {
-                Id = 1,
-                Name = "Harsh",
-                Email = "hp@gmail.com",
-                ContactNo = 7801853061,
-                Gender = "Male",
-                DateOfBirth = DateTime.Now,
-                Password = "fsf"
+                
+                    Id = 1,
+                    Name = "Harsh",
+                    Email = "hp@gmail.com",
+                    ContactNo = 7801853061,
+                    Gender = "Male",
+                    DateOfBirth = DateTime.Now,
+                    Password = "fsf"
+                
             };
+        
 
-            _userRepository.Setup(x => x.AddUser(Mock.Of<User>())).ReturnsAsync(1);
+            _userRepository.Setup(x => x.AddUser(Mock.Of<User>())).ReturnsAsync(It.IsAny<int>());
 
             var addUser = await _userService.AddUserAsync(user);
+           
             Assert.NotNull(addUser);
 
         }
@@ -83,13 +88,14 @@ namespace UnitTesting.UserServiceTesting
             };
 
             
-            _userRepository.Setup(x=> x.AddUser(null as User)).ReturnsAsync(1);
+            _userRepository.Setup(x=> x.AddUser(null as User)).ReturnsAsync(It.IsAny<int>());
 
             var addUser = _userService.AddUserAsync(user);   
 
             await Assert.ThrowsAsync<ArgumentNullException>(async ()=> await addUser);
 
         }
+
             [Fact]
         public async void DeleteUser_Successfull()
         {

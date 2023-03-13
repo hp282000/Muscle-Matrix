@@ -10,7 +10,7 @@ namespace MuscleMatrix.Core.Contract
 {
     public interface IMemberService
     {
-        Task<int> AddMemberAsync(MemberRequestModel memberRequestModel);
+        Task<int> AddMemberAsync(MemberRequestModel memberRequestModel, string image);
 
         Task<List<MemberResponseModel>> GetMemberAsync();
 

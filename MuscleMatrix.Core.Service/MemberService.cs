@@ -28,11 +28,11 @@ namespace MuscleMatrix.Core.Service
             _fileUploadHelper = fileUploadHelper;
         }
 
-        public async Task<int> AddMemberAsync(MemberRequestModel memberRequestModel)
+        public async Task<int> AddMemberAsync(MemberRequestModel memberRequestModel, string image)
         {
         //    var addMember1 = new MemberBuilder();
          //   var addMember = addMember1.Build(memberRequestModel);
-            var addMember = MemberBuilder.Build(memberRequestModel);
+            var addMember = MemberBuilder.Build(memberRequestModel, image);
 
             var useMember = await _imemberRepository.AddMember(addMember);
 
