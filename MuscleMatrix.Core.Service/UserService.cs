@@ -45,7 +45,7 @@ namespace MuscleMatrix.Core.Service
         {
             var userpassword = new User();
             var hsa = new HMACSHA256();
-            var password = Encoding.ASCII.GetBytes(userRequestModel.Password);
+            var password = Encoding.ASCII.GetBytes(userRequestModel.Password);  
             var computepassword = hsa.ComputeHash(password);
 
             userpassword.Password = computepassword;
@@ -56,7 +56,7 @@ namespace MuscleMatrix.Core.Service
        
                var user = await _userRepository.AddUser(addUser);
 
-            if(user == null)
+            if(user == 0)
             {
                 throw   new ArgumentNullException("User is not created Successfully Make sure that your repository works properly");
             }

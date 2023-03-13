@@ -19,8 +19,10 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
         public string Gender { get; set; }
         public DateTime DateOfBirth { get; set; }
        
-        public User() { }
+       // public User() { }
 
+        public User() { }
+ 
         public User(string name, string email, long contactNo,string gender ,DateTime dateOfBirth, byte[] password, byte[] passwordSalt)
         {
             Name = name;
@@ -31,7 +33,7 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
             Password = password;
             PasswordSalt = passwordSalt;
             CreatedOn= DateTime.Now;
-            
+            CreatedBy = name;
 
             IsActive = true; 
             UpdatedBy= "Not Updated";

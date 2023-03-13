@@ -5,9 +5,9 @@ namespace MuscleMatrix.Core.Builder
 {
     public static class MemberBuilder
     {
-        public static Member Build(MemberRequestModel memberRequestModel)
+        public static Member Build(MemberRequestModel memberRequestModel , string image)
         {
-            return new Member(memberRequestModel.Photo.FileName, memberRequestModel.WeightId, memberRequestModel.HeightId, memberRequestModel.LocationId, memberRequestModel.UserId);
+            return new Member( memberRequestModel.WeightId, memberRequestModel.HeightId, memberRequestModel.LocationId, memberRequestModel.UserId, image);
         }
     }
 }
