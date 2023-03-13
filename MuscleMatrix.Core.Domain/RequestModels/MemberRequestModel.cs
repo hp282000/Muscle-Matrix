@@ -9,7 +9,7 @@ namespace MuscleMatrix.Core.Domain.RequestModels
 {
     public class MemberRequestModel
     {
-        public int Id { get; set; }
+       
         public int HeightId { get; set; }
 
         public int WeightId { get; set; }

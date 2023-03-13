@@ -17,12 +17,12 @@ namespace MuscleMatrix.Core.Service
     {
         private readonly IPasswordChangeRepository _passwordChangeRepository;
         private readonly IHttpContextAccessor _httpContextAccessor;
-        private readonly IUserRepository _userrepository;
-         public PasswordChangeService(IPasswordChangeRepository passwordChangeRepository,IHttpContextAccessor httpContextAccessor, IUserRepository userrepository) 
+        
+         public PasswordChangeService(IPasswordChangeRepository passwordChangeRepository,IHttpContextAccessor httpContextAccessor) 
         {
            _passwordChangeRepository = passwordChangeRepository;
             _httpContextAccessor = httpContextAccessor;
-            _userrepository = userrepository;
+            
         }
 
         public async Task<string> ChangePasswordAsync(PasswordchangeRequestModel passwordchangeRequestModel)

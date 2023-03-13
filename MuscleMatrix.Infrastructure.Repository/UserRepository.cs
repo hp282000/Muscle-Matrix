@@ -26,7 +26,6 @@ namespace MuscleMatrix.Infrastructure.Repository
             return checkUser;
         }
 
-
         public async Task<int> AddUser(User user)
         {
 

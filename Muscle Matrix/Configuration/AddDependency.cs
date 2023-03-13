@@ -1,5 +1,6 @@
 ﻿using MuscleMatrix.Core.Contract;
 using MuscleMatrix.Core.Service;
+using MuscleMatrix.Core.Service.Helper;
 using MuscleMatrix.Infrastructure.Contract;
 using MuscleMatrix.Infrastructure.Repository;
 
@@ -25,11 +26,10 @@ namespace Muscle_Matrix.Configuration
             services.AddTransient<IMembershipRepository, MembershipRepository>();
             services.AddTransient<IPasswordChangeService, PasswordChangeService>();
             services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
-
             services.AddTransient<IPasswordChangeRepository, PasswordChangeRepository>();
             services.AddTransient<IMemberTrainerService, MemberTrainerService>();
             services.AddTransient<IMemberTrainerRepository, MemberTrainerRepository>();
-
+            services.AddTransient<IFileUploadHelper, FileUploadHelper>();
 
             services.AddAutoMapper(typeof(Program));
         }
