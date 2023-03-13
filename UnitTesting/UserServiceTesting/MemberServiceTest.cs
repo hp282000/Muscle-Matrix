@@ -21,6 +21,7 @@ namespace UnitTesting.UserServiceTesting
 {
     public class MemberServiceTest
     {
+
         private readonly Mock<IMemberRepository> _memberRepository;
 
         private readonly MapperConfiguration _mapperConfiguration;
