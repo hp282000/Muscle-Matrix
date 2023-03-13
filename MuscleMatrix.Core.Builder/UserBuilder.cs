@@ -5,9 +5,9 @@ namespace MuscleMatrix.Core.Builder
 {
     public class UserBuilder
     {
-        public static User Build(UserRequestModel userRequestModel , User user)
+        public static User Build(UserRequestModel userRequestModel , byte[] password , byte[] passwordSalt)
         {
-            return new User(userRequestModel.Name, userRequestModel.Email, userRequestModel.ContactNo , userRequestModel.Gender, userRequestModel.DateOfBirth,user.Password , user.PasswordSalt );
+            return new User(userRequestModel.Name, userRequestModel.Email, userRequestModel.ContactNo , userRequestModel.Gender, userRequestModel.DateOfBirth, password, passwordSalt);
         }
     }
 }

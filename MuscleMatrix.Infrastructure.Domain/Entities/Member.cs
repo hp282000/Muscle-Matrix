@@ -24,6 +24,7 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
 
         public Member(string photo, int weightId, int heightId, int locationId, int userId)
         {
+         
             Photo = photo;
             WeightId = weightId;
             HeightId = heightId;

@@ -20,6 +20,7 @@ namespace MuscleMatrix.Infrastructure.Repository
         }
         public async Task<int> AddMember(Member member)
         {
+            
             var addMember = await _projectContext.Members.AddAsync(member);
 
             if (addMember == null)

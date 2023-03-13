@@ -21,8 +21,16 @@ namespace MuscleMatrix.Infrastructure.Repository
 
         public async Task<int> AddUserRole(UserRoleMapping userRoleMapping)
         {
-             await _projectContext.AddAsync(userRoleMapping);
-
+           
+            var isExists = _projectContext.userRoleMappings.FirstOrDefault(x=> x.UserId == userRoleMapping.UserId && x.RoleId == userRoleMapping.RoleId);
+            if (isExists == null)
+            {
+                await _projectContext.AddAsync(userRoleMapping);
+            }
+            else
+            {
+                throw new Exception("Already Mapped");
+            }
             return await _projectContext.SaveChangesAsync();
 
 

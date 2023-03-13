@@ -1,10 +1,5 @@
 ﻿using MuscleMatrix.Core.Domain.RequestModels;
 using MuscleMatrix.Infrastructure.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MuscleMatrix.Core.Builder
 {
@@ -12,7 +7,7 @@ namespace MuscleMatrix.Core.Builder
     {
         public static Member Build(MemberRequestModel memberRequestModel)
         {
-            return new Member(memberRequestModel.Photo.FileName ,memberRequestModel.WeightId, memberRequestModel.HeightId, memberRequestModel.LocationId,memberRequestModel.UserId);
+            return new Member(memberRequestModel.Photo.FileName, memberRequestModel.WeightId, memberRequestModel.HeightId, memberRequestModel.LocationId, memberRequestModel.UserId);
         }
     }
 }

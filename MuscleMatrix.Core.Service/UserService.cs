@@ -52,7 +52,7 @@ namespace MuscleMatrix.Core.Service
           //  userpassword.Password = password;    
             userpassword.PasswordSalt = hsa.Key;
 
-            var addUser = UserBuilder.Build(userRequestModel, userpassword);
+            var addUser = UserBuilder.Build(userRequestModel, userpassword.Password , userpassword.PasswordSalt);
        
                var user = await _userRepository.AddUser(addUser);
 

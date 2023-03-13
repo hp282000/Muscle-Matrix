@@ -10,7 +10,7 @@ namespace MuscleMatrix.Core.Domain.RequestModels
 {
     public class TrainerRequestModel
     {
-        public int Id { get; set; }
+        
         public int YearofExperience { get; set; }
         public string Speciality { get; set; }
         public string ExperienceDiscription { get; set; }
