@@ -43,16 +43,19 @@ namespace MuscleMatrix.Core.Service
 
         public async Task<int> AddUserAsync(UserRequestModel userRequestModel)
         {
-            var userpassword = new User();
+           // var userpassword = new User();
+
             var hsa = new HMACSHA256();
-            var password = Encoding.ASCII.GetBytes(userRequestModel.Password);  
-            var computepassword = hsa.ComputeHash(password);
+            var computePassword = hsa.ComputeHash(Encoding.ASCII.GetBytes(userRequestModel.Password));
+            var passwordSalt = hsa.Key;
+            
+            //var computepassword = hsa.ComputeHash(password);
 
-            userpassword.Password = computepassword;
-          //  userpassword.Password = password;    
-            userpassword.PasswordSalt = hsa.Key;
+            //userpassword.Password = computepassword;
+            //userpassword.Password = password;    
+            //userpassword.PasswordSalt = hsa.Key;
 
-            var addUser = UserBuilder.Build(userRequestModel, userpassword.Password , userpassword.PasswordSalt);
+            var addUser = UserBuilder.Build(userRequestModel, computePassword, passwordSalt);
        
                var user = await _userRepository.AddUser(addUser);
 

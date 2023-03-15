@@ -30,16 +30,14 @@ namespace MuscleMatrix.Core.Service
 
         public async Task<int> AddMemberAsync(MemberRequestModel memberRequestModel, string image)
         {
-        //    var addMember1 = new MemberBuilder();
-         //   var addMember = addMember1.Build(memberRequestModel);
+        
             var addMember = MemberBuilder.Build(memberRequestModel, image);
 
-            var useMember = await _imemberRepository.AddMember(addMember);
-
             var uploadImage = memberRequestModel.Photo;
-          //  var cloudinary = new Cloudinary("CLOUDINARY_URL=cloudinary://256532249671949:zYaObf6qQeiSh-WlCEJbWU4QTdo@dcky8arhy");
-
+         
             await _fileUploadHelper.UploadImage(uploadImage);
+
+            var useMember = await _imemberRepository.AddMember(addMember);
 
 
             return useMember;
