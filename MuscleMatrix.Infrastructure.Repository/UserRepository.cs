@@ -31,7 +31,7 @@ namespace MuscleMatrix.Infrastructure.Repository
 
             await _projectContext.Users.AddAsync(user);
 
-            return _projectContext.SaveChanges();
+            return await _projectContext.SaveChangesAsync();
         }
         public async Task<List<User>> GetAllUsers()
         {

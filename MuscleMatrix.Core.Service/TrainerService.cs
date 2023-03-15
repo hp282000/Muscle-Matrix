@@ -24,13 +24,22 @@ namespace MuscleMatrix.Core.Service
             _mapper = mapper;
         }
 
-        public async Task<int> AddTrainerAsync(TrainerRequestModel trainerRequestModel)
+        public async Task<int> AddTrainerAsync(TrainerRequestModel trainerRequestModel, string image)
         {
-            var addTrainer = TrainerBuilder.Build(trainerRequestModel);
+            try
+            {
+            var addTrainer = TrainerBuilder.Build(trainerRequestModel, image);
 
             var useTrainer = await _itrainerRepository.AddTrainer(addTrainer);
 
-            return useTrainer;
+                return useTrainer;
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
+            
         }
 
         public async Task<List<TrainerResponseModel>> GetTrainerAsync()
@@ -56,11 +65,11 @@ namespace MuscleMatrix.Core.Service
             return id;
         }
 
-        public async Task<TrainerResponseModel> UpdateTrainerAsync(TrainerRequestModel trainerRequestModel, int id)
+        public async Task<TrainerResponseModel> UpdateTrainerAsync(TrainerRequestModel trainerRequestModel, int id, string image)
         {
             var getTrainer = await _itrainerRepository.GetTrainerById(id);
 
-            getTrainer.UpdateData(trainerRequestModel.YearofExperience, trainerRequestModel.ExperienceDiscription, trainerRequestModel.Speciality, trainerRequestModel.ProfilePhoto.FileName, trainerRequestModel.UserId, trainerRequestModel.LocationId, trainerRequestModel.HeightId, trainerRequestModel.WeightId);
+            getTrainer.UpdateData(trainerRequestModel.YearofExperience, trainerRequestModel.ExperienceDiscription, trainerRequestModel.Speciality, image, trainerRequestModel.UserId, trainerRequestModel.LocationId, trainerRequestModel.HeightId, trainerRequestModel.WeightId);
 
             var updateTrainer = await _itrainerRepository.UpdateTrainer(getTrainer);
             var mapping = _mapper.Map<TrainerResponseModel>(updateTrainer);

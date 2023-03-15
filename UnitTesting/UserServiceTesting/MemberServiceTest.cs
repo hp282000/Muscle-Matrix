@@ -64,12 +64,13 @@ namespace UnitTesting.UserServiceTesting
             };
 
             _fileUploadHelper.Setup(x => x.UploadImage(It.IsAny<IFormFile>())).ReturnsAsync("abc.jpg");
-            _memberRepository.Setup(x => x.AddMember(Mock.Of<MuscleMatrix.Infrastructure.Domain.Entities.Member>())).ReturnsAsync(1);
+            _memberRepository.Setup(x => x.AddMember(It.IsAny<MuscleMatrix.Infrastructure.Domain.Entities.Member>())).ReturnsAsync(1);
 
             var addUser = await _memberService.AddMemberAsync(member,"test.jpg");
             Assert.NotNull(addUser);
 
         }
+
 
         [Fact]
         public async void DeleteMember_Successfull()
@@ -99,7 +100,7 @@ namespace UnitTesting.UserServiceTesting
             MemberRequestModel memberRequest = new MemberRequestModel()
             {
                 HeightId = 1,
-                WeightId = 1,
+                  WeightId = 1,
                 LocationId = 1,
                 UserId = 1,
             };

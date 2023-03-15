@@ -20,6 +20,7 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
 
         public Member Member { get; set; }
 
+        public Membership() { }
         public Membership(MembershipType type, long cost, int durationDay, int memberId)
         {
             Type = type;

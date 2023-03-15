@@ -7,9 +7,9 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
   
         public int Id { get; set; }
         public int MemberId { get; set; }
-        public Member Member { get; set; }
+        public Member? Member { get; set; }
         public int TrainerId { get; set; }
-        public Trainer Trainer { get; set; }
+        public Trainer? Trainer { get; set; }
 
         public MemberTrainerMapping(int memberId, int trainerId)
         {

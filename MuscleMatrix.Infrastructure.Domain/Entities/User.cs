@@ -19,9 +19,9 @@ namespace MuscleMatrix.Infrastructure.Domain.Entities
         public string Gender { get; set; }
         public DateTime DateOfBirth { get; set; }
        
-       // public User() { }
-
         public User() { }
+
+       // protected User() { }
  
         public User(string name, string email, long contactNo,string gender ,DateTime dateOfBirth, byte[] password, byte[] passwordSalt)
         {
