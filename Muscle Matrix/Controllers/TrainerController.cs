@@ -22,7 +22,8 @@ namespace Muscle_Matrix.Controllers
         [HttpPost("trainer")]
         public async Task<IActionResult> AddTrainer([FromForm] TrainerRequestModel trainerRequestModel)
         {
-            await _trainerService.AddTrainerAsync(trainerRequestModel);
+            string image = "hp.jpg";
+            await _trainerService.AddTrainerAsync(trainerRequestModel, image);
 
             return Ok(trainerRequestModel);
         }
@@ -41,9 +42,9 @@ namespace Muscle_Matrix.Controllers
             return Ok(deleteTrainer);
         }
         [HttpPut("trainer")]
-        public async Task<IActionResult> UpdateTrainer([FromForm] TrainerRequestModel trainerRequestModel,int id )
+        public async Task<IActionResult> UpdateTrainer([FromForm] TrainerRequestModel trainerRequestModel,int id , string image)
         {
-            var updateTrainer = await _trainerService.UpdateTrainerAsync(trainerRequestModel,id);
+            var updateTrainer = await _trainerService.UpdateTrainerAsync(trainerRequestModel,id,image);
 
             return Ok(updateTrainer);
         }

@@ -25,15 +25,34 @@ namespace Muscle_Matrix.Configuration
             CreateMap<Trainer, TrainerResponseModel>()
                 .ForMember(trm => trm.WeightValue, t => t.MapFrom(x => x.Weight.WeightValue))
                 .ForMember(trm => trm.HeightValue, t => t.MapFrom(x => x.Height.HeightValue))
-                .ForMember(trm => trm.LocationName,t => t.MapFrom(x => x.Location.LocationName));
-
+                .ForMember(trm => trm.LocationName, t => t.MapFrom(x => x.Location.LocationName));
+                
+                
             CreateMap<Membership, MembershipResponseModel>();
             //       .ForMember(mrm=> mrm)
 
-            CreateMap<MemberTrainerMapping, MemberTrainerResponseModel>();
-              //  .ForMember(mtrm => mtrm.Member.HeightValue, m => m.MapFrom(x => x.Member.Height.HeightValue));
-                
-        
+            CreateMap<MemberTrainerMapping, MemberTrainerResponseModel>()
+                //.ForMember(mtrm => mtrm.Member, m => m.MapFrom(x => x.Member))
+                //.ForMember(mtrm => mtrm.Trainer, m => m.MapFrom(x => x.Trainer))
+                //.ForMember(mtrm=> mtrm.Member.User , m=> m.MapFrom(x=> x.Member.UserId))
+                //.ForMember(mtrm => mtrm.Trainer.User, m => m.MapFrom(x => x.Trainer.User.Id))
+                ;
+
+                //.ForMember(mtrm => mtrm.Member.User, m => m.MapFrom(x => x.Member.User))
+                //.ForMember(mtrm => mtrm.Trainer.User, m => m.MapFrom(x => x.Trainer.User))
+
+            // .ForMember(mtrm => mtrm.Member.HeightValue, m => m.MapFrom(x => x.Member.Height))
+            //.ForMember(mtrm => mtrm.Trainer.HeightValue, m => m.MapFrom(x => x.Trainer.Height))
+
+            // .ForMember(mtrm => mtrm.Member.WeightValue, m => m.MapFrom(x => x.Member.Weight))
+            //.ForMember(mtrm => mtrm.Trainer.WeightValue, m => m.MapFrom(x => x.Trainer.Weight))
+
+            // .ForMember(mtrm => mtrm.Member.LocationName, m => m.MapFrom(x => x.Member.Location))
+            //.ForMember(mtrm => mtrm.Trainer.LocationName, m => m.MapFrom(x => x.Trainer.Location));
+
+            //  .ForMember(mtrm => mtrm.Member.HeightValue, m => m.MapFrom(x => x.Member.Height.HeightValue));
+
+
         }
     }
 }

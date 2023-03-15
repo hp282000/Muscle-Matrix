@@ -32,7 +32,7 @@ namespace MuscleMatrix.Infrastructure.Repository
                 .Include(x => x.Member).ThenInclude(x => x.Height).Include(x => x.Member.Weight).Include(x => x.Member.Location).Include(x=>x.Member.User)
                 .Include(x=> x.Trainer).ThenInclude(x => x.Height).Include(x => x.Trainer.Weight).Include(x => x.Trainer.Location).Include(x => x.Trainer.User)
                 .ToListAsync();
-
+            
             return getTrainerMember;
          
         }

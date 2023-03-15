@@ -50,23 +50,24 @@ namespace UnitTesting.UserServiceTesting
         [Fact]
         public async void AddUser_MustPass()
         {
-            UserRequestModel user = new UserRequestModel()
+
+            UserRequestModel userRequestModel = new UserRequestModel()
             {
-                
-                    Id = 1,
-                    Name = "Harsh",
-                    Email = "hp@gmail.com",
-                    ContactNo = 7801853061,
-                    Gender = "Male",
-                    DateOfBirth = DateTime.Now,
-                    Password = "fsf"
-                
+
+                Id = 1,
+                Name = "Harsh",
+                Email = "hp@gmail.com",
+                ContactNo = 7801853061,
+                Gender = "Male",
+                DateOfBirth = DateTime.Now,
+                Password = "fsf"
+
             };
-        
+            //User user = new User(name,email,contactNo,gender,dateOfBirth);
 
-            _userRepository.Setup(x => x.AddUser(Mock.Of<User>())).ReturnsAsync(It.IsAny<int>());
+            _userRepository.Setup(x => x.AddUser(It.IsAny<User>())).ReturnsAsync(1);
 
-            var addUser = await _userService.AddUserAsync(user);
+            var addUser = await _userService.AddUserAsync(userRequestModel);
            
             Assert.NotNull(addUser);
 
@@ -110,18 +111,18 @@ namespace UnitTesting.UserServiceTesting
         [Fact]
         public async void UpdateUser_Successfull()
         {
-            User user = new User()
-            {
-                Id = 1,
-                Name = "Harsh",
-                Email = "hp@gmail.com",
-                ContactNo = 7801853061,
-                Gender = "Male",
-                DateOfBirth = DateTime.Now,
-                Password = Encoding.ASCII.GetBytes("123"),
-                PasswordSalt = Encoding.ASCII.GetBytes("123")
+            //User user = new User()
+            //{
+            //    Id = 1,
+            //    Name = "Harsh",
+            //    Email = "hp@gmail.com",
+            //    ContactNo = 7801853061,
+            //    Gender = "Male",
+            //    DateOfBirth = DateTime.Now,
+            //    Password = Encoding.ASCII.GetBytes("123"),
+            //    PasswordSalt = Encoding.ASCII.GetBytes("123")
 
-            };
+            //};
 
             UserRequestModel userRequestModel = new UserRequestModel()
             {
@@ -134,8 +135,8 @@ namespace UnitTesting.UserServiceTesting
                 Password = "fsf"
             };
 
-            _userRepository.Setup(x=> x.GetUserById(It.IsAny<int>())).ReturnsAsync(user);
-            _userRepository.Setup(x => x.UpdateUser(Mock.Of<User>())).ReturnsAsync(user);
+            _userRepository.Setup(x=> x.GetUserById(It.IsAny<int>())).ReturnsAsync(Mock.Of<User>());
+            _userRepository.Setup(x => x.UpdateUser(Mock.Of<User>())).ReturnsAsync(Mock.Of<User>());
             var updateUser = _userService.UpdateUserAsync(userRequestModel, 1);
             Assert.NotNull(updateUser);
 
