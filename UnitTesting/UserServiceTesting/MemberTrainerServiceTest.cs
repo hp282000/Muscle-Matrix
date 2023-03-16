@@ -28,6 +28,7 @@ namespace UnitTesting.UserServiceTesting
         {
             _mapperConfiguration = new MapperConfiguration(x => x.AddProfile(new AddMapperProfile()));
             _memberTrainerRepository= new Mock<IMemberTrainerRepository>();
+            _mapper = _mapperConfiguration.CreateMapper();
             _memberTrainerService = new MemberTrainerService(_memberTrainerRepository.Object, _mapper);
         }
         [Fact]
@@ -39,7 +40,7 @@ namespace UnitTesting.UserServiceTesting
                new MemberTrainerMapping()
                {
                    Id= 1,
-                    MemberId= 1,
+                   MemberId= 1,
                    TrainerId= 1,
                    Member = new Member()
                    {
