@@ -9,7 +9,7 @@ namespace Muscle_Matrix.Configuration
 {
     public static class JwtAuthentication
     {
-        public static void ManualAuthentication(this IServiceCollection services , IConfiguration configuration)
+        public static void ManualAuthentication(this IServiceCollection services,  IConfiguration configuration)
         {
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             {
