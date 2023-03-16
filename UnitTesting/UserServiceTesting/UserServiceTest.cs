@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Castle.Core.Configuration;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Muscle_Matrix.Configuration;
@@ -22,18 +23,22 @@ namespace UnitTesting.UserServiceTesting
 
         private readonly Mock<IUserRepository> _userRepository;
         private readonly MapperConfiguration _mapperConfiguration;
+        private readonly IConfiguration _config;
+        private readonly Mock<IPasswordChangeRepository> _passwordChangeRepository;
         private readonly IMapper _mapper;
 
         private readonly UserService _userService;
 
         public UserServiceTest()
         {
+            //_config = new Config
+            _passwordChangeRepository = new Mock<IPasswordChangeRepository>();
             _userRepository = new Mock<IUserRepository>();
             _mapperConfiguration = new MapperConfiguration(config => config.AddProfile(new AddMapperProfile()));
             _mapper = _mapperConfiguration.CreateMapper();
-            _userService = new UserService(_userRepository.Object, _mapper);
+            _userService = new UserService(_userRepository.Object, _mapper , _passwordChangeRepository.Object, null);
         }
-
+         
         //GetUserTest
         [Fact]
         public async void GetUser_Test()

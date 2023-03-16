@@ -15,6 +15,8 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 
 builder.Services.AddControllers().AddFluentValidation(x=> x.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly()));
 builder.Services.ManualAuthentication(builder.Configuration);
+//JwtAuthentication.ManualAuthentication(builder.Configuration);
+//its static method so why it is not call like JwtAuthentication.ManualAuthentication(builder.Configuration);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -40,3 +42,4 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
