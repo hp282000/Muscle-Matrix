@@ -13,9 +13,9 @@ namespace Muscle_Matrix.Controllers
     {
         private readonly IUserService _userService;
         private readonly IPasswordChangeService _passwordChangeService;
-        public UserController(IUserService muscleMatrixUserService, IPasswordChangeService passwordChangeService)
+        public UserController(IUserService userService, IPasswordChangeService passwordChangeService)
         {
-            _userService = muscleMatrixUserService;
+            _userService = userService;
             _passwordChangeService = passwordChangeService;
         }
 
@@ -82,6 +82,18 @@ namespace Muscle_Matrix.Controllers
             var changepassword = await _passwordChangeService.ChangePasswordAsync(passwordchange);
             return Ok(changepassword);
 
+        }
+
+        [HttpPost("Sent-OTP")]
+        public async Task<IActionResult> SendEmail(string email)
+        {
+            var result = await _userService.SendEmailAsync(email);
+
+            var cookieOptions = new CookieOptions();
+            cookieOptions.Expires= DateTime.Now.AddMinutes(5);
+          //  Response.Cookies.Append("OtpText")
+
+            return Ok(result);
         }
     }
 }
