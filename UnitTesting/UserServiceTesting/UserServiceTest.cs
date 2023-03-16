@@ -38,7 +38,7 @@ namespace UnitTesting.UserServiceTesting
             _mapper = _mapperConfiguration.CreateMapper();
             _userService = new UserService(_userRepository.Object, _mapper , _passwordChangeRepository.Object, null);
         }
-
+         
         //GetUserTest
         [Fact]
         public async void GetUser_Test()
