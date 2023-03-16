@@ -13,7 +13,7 @@ namespace Muscle_Matrix.Configuration
             CreateMap<User,UserResponseModel>();
       
             CreateMap<UserRoleMapping, UserRoleResponseModel>()
-                .ForMember(urrm => urrm.UserName, urm => urm.MapFrom(x => x.User.Name)).
+                .ForMember(urrm => urrm.UserName, urm => urm.MapFrom(x => x.User.Email)).
                 ForMember(urrm => urrm.Role , urm=> urm.MapFrom(x=> x.Role.Name));
             CreateMap<UserRequestModel,UserResponseModel>();
 

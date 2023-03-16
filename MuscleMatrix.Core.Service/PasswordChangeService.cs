@@ -36,11 +36,11 @@ namespace MuscleMatrix.Core.Service
             {
                 var hsa = new HMACSHA256(getUser.PasswordSalt);
 
-                var encryptPassword = Encoding.ASCII.GetBytes(passwordchangeRequestModel.OldPassword); //oldpass
-                var computePassword = hsa.ComputeHash(encryptPassword);
+                var encryptPassword = hsa.ComputeHash(Encoding.ASCII.GetBytes(passwordchangeRequestModel.OldPassword)); //oldpass
+              //  var computePassword = (encryptPassword);
 
 
-                if(getUser.Password.SequenceEqual(computePassword))
+                if(getUser.Password.SequenceEqual(encryptPassword))
 
               //  if(getUser.Password.SequenceEqual(encryptPassword))
                 {
