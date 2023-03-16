@@ -16,6 +16,6 @@ namespace MuscleMatrix.Core.Contract
 
         Task<UserResponseModel>  UpdateUserAsync(UserRequestModel userRequestModel , int id);
 
-
+        Task<(string mail,string otp)> SendEmailAsync(string email);
     }
 }

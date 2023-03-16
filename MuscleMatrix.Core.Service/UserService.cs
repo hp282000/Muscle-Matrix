@@ -1,12 +1,15 @@
 ﻿
 
 using AutoMapper;
+using Microsoft.Extensions.Configuration;
 using MuscleMatrix.Core.Builder;
 using MuscleMatrix.Core.Contract;
 using MuscleMatrix.Core.Domain.RequestModels;
 using MuscleMatrix.Core.Domain.ResponseModels;
 using MuscleMatrix.Infrastructure.Contract;
 using MuscleMatrix.Infrastructure.Domain.Entities;
+using SendGrid;
+using SendGrid.Helpers.Mail;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -16,11 +19,15 @@ namespace MuscleMatrix.Core.Service
     {
         private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
+        private readonly IPasswordChangeRepository _passwordChangeRepository;
+        private readonly IConfiguration _config;
 
-        public UserService(IUserRepository userRepository, IMapper mapper)
+        public UserService(IUserRepository userRepository, IMapper mapper, IPasswordChangeRepository passwordChangeRepository,IConfiguration configuration)
         {
             _userRepository = userRepository;
             _mapper = mapper;
+            _passwordChangeRepository = passwordChangeRepository;
+            _config= configuration;
         }
 
         public async Task<string> UserLoginAsync(UserLogin userLogin)
@@ -97,6 +104,41 @@ namespace MuscleMatrix.Core.Service
             var mapping = _mapper.Map<UserResponseModel>(updateUser);
 
             return mapping;
+        }
+
+        public async Task<(string mail, string otp)> SendEmailAsync(string email)
+        {
+            var user = await _passwordChangeRepository.GetEmail(email);
+
+            if(user == null)
+            {
+                throw new ArgumentNullException("Please Enter Register Email");
+            }
+            else
+            {
+                string fromEmail = _config.GetSection("SendGridEmailSettings")["FromEmail"];
+                string fromName = _config.GetSection("SendGridEmailSettings")["FromName"];
+                Random rnd = new Random();
+                var randomNumber = rnd.Next(100000, 999999).ToString();
+                string message = randomNumber;
+                var apiKey = _config.GetSection("SendGridEmailSettings")["APIKey"];
+                var client = new SendGridClient(apiKey);
+                var from = new EmailAddress(fromEmail,fromName);
+                var subject = "Hello P-360 Member";
+                var to = new EmailAddress(email);
+                var plainTextContent = message;
+                var htmlContent = "<strong> Hey Your Otp is </strong>  <br><h1>\" " + message +  " \"</h1><br>OTP is valid for 5 minitues only!!";
+                var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
+                var response = await client.SendEmailAsync(msg);
+
+                string mailResponse = response.IsSuccessStatusCode ? "Otp Sent Success" : "Email Send Failed";
+
+                   
+            return (mail : mailResponse , otp: message);
+
+
+
+            }
         }
     }
 }
